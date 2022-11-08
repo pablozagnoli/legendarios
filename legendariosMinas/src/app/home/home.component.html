@@ -1,88 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <body>
-<app-header></app-header>
+
 
     <main>
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-bs-ride="true"
-      >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./assets/img/1.png" class="d-block w-100" alt="..." />
-          </div>
-          <div class="carousel-item">
-            <img src="./assets/img/2.png" class="d-block w-100" alt="..." />
-          </div>
-          <div class="carousel-item">
-            <img src="./assets/img/1.png" class="d-block w-100" alt="..." />
-          </div>
-        </div>
-
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+      <app-carrousel></app-carrousel>
 
       <div class="container marketing" style="margin-top: 40px">
         <div class="row">
           <div class="col-lg-4">
             <img
-            src="./assets/img/imganuncio1.jpg"
-            class="bd-placeholder-img rounded-circle"
-            width="140"
-            height="140"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: 140x140"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          />
+              src="./assets/img/imganuncio1.jpg"
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Placeholder: 140x140"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+            />
 
             <h2 class="fw-normal">Leia Sobre</h2>
-            <p>
-              Legendario conta sobre suas experiência
-            </p>
+            <p>Legendario conta sobre suas experiência</p>
             <p>
               <a
                 class="btn btn-secondary"
@@ -95,21 +35,19 @@
 
           <div class="col-lg-4">
             <img
-            src="./assets/img/imganuncio1.jpg"
-            class="bd-placeholder-img rounded-circle"
-            width="140"
-            height="140"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: 140x140"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          />
+              src="./assets/img/imganuncio1.jpg"
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Placeholder: 140x140"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+            />
 
             <h2 class="fw-normal">Leia Sobre</h2>
-            <p>
-              Novos Eventos a seguir.
-            </p>
+            <p>Novos Eventos a seguir.</p>
             <p>
               <a
                 class="btn btn-secondary"
@@ -122,21 +60,19 @@
 
           <div class="col-lg-4">
             <img
-            src="./assets/img/imganuncio1.jpg"
-            class="bd-placeholder-img rounded-circle"
-            width="140"
-            height="140"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: 140x140"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          />
+              src="./assets/img/imganuncio1.jpg"
+              class="bd-placeholder-img rounded-circle"
+              width="140"
+              height="140"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Placeholder: 140x140"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+            />
 
             <h2 class="fw-normal">Leia Sobre</h2>
-            <p>
-              Rec 998 está chegando.
-            </p>
+            <p>Rec 998 está chegando.</p>
             <p>
               <a
                 class="btn btn-secondary"
@@ -158,9 +94,7 @@
               Grande Testemunho
               <span class="text-muted">Você tambem pode.</span>
             </h2>
-            <p class="lead">
-              Veja o video.
-            </p>
+            <p class="lead">Veja o video.</p>
           </div>
           <div class="col-md-5">
             <img
@@ -184,9 +118,7 @@
               Oração do legendário
               <span class="text-muted">Convocação Geral.</span>
             </h2>
-            <p class="lead">
-              Veja aqui.
-            </p>
+            <p class="lead">Veja aqui.</p>
           </div>
           <div class="col-md-5 order-md-1">
             <img
@@ -207,11 +139,12 @@
         <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading fw-normal lh-1">
-              O proximo REC está chegando. <span class="text-muted">Faça sua inscrição.</span>
+              O proximo REC está chegando.
+              <span class="text-muted">Faça sua inscrição.</span>
             </h2>
             <p class="lead">
-              O REC (RETO EXTREMO DE CARATER) É um eventro extraordinário onde o Homem pode ser conectar com o Legendário Numero 1.
-              AHU!!!
+              O REC (RETO EXTREMO DE CARATER) É um eventro extraordinário onde o
+              Homem pode ser conectar com o Legendário Numero 1. AHU!!!
             </p>
           </div>
           <div class="col-md-5">
@@ -229,10 +162,7 @@
         </div>
 
         <hr class="featurette-divider" />
-
       </div>
-
     </main>
-
   </body>
 </html>
