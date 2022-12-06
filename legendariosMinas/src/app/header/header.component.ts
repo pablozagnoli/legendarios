@@ -12,4 +12,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  homeclick(){
+    sessionStorage.setItem("ExibeRodape","1");
+  }
+
 }

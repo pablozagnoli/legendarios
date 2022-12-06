@@ -10,6 +10,9 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("ExibeRodape","1");
   }
+
+
 
 }

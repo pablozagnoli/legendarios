@@ -2,29 +2,27 @@
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
       <img src="./assets/img/04.png" class="bi me-4" width="100" height="40">
-      <a class="navbar-brand" style="color: coral" href="#"
-        >Legendarios - MG </a
-      >
+      <a class="navbar-brand" style="color: coral" href="#">Legendarios - MG </a>
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a
-              class="nav-link active"
-              style="color: coral"
-              aria-current="page"
-              href="/home"
-              >Home</a
-            >
+            <a class="nav-link active" style="color: coral" aria-current="page" routerLink="/home" (click)="homeclick()">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Ações Sociais</a>
           </li>
         </ul>
+        <button class="btn btn-warning"
+        style="margin-left: 1em ;"
+        routerLink="/login-adm"
+        >ADM</button>
 
-        <button class="btn btn-warning">Cadastrar</button>
+        <button class="btn btn-warning"
+        style="margin-left: 1em ;"
+        routerLink="cadastrar-sendenrista"
+        >Cadastrar</button>
       </div>
     </div>
   </nav>
 </header>
-
