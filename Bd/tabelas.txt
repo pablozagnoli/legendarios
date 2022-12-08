@@ -1,0 +1,47 @@
+
+CREATE  TABLE  IF NOT EXISTS  senderistas (         
+id_senderista  INT  AUTO_INCREMENT  PRIMARY KEY,         
+titulo_imovel VARCHAR(100),
+descricao_imovel VARCHAR(255),
+endereco_imovel VARCHAR(155),
+cep_imovel VARCHAR(255),
+valor_imovel VARCHAR(255),
+data_de_edicao  DATE,
+status  TINYINT  NOT NULL,
+priority  TINYINT  NOT NULL,
+description  TEXT,
+data_de_criacao  TIMESTAMP  DEFAULT  CURRENT_TIMESTAMP)  ENGINE=INNODB;
+
+CREATE  TABLE  IF NOT EXISTS legendarios (  
+id_legendario INT  AUTO_INCREMENT  PRIMARY KEY,       
+n_lgnd  INT PRIMARY KEY,         
+nome VARCHAR(200),
+rec VARCHAR(100),
+email VARCHAR(100),
+celular VARCHAR(50),
+cadastro_pessoa VARCHAR(255),
+data_de_nascimento  DATE,
+estado_civil VARCHAR(50),
+profissao VARCHAR(100),
+tipo sanguineo VARCHAR(50),
+religiao VARCHAR(100),
+igreja VARCHAR(100),
+e_batizado BOOLEAN,
+frequanta_celula BOOLEAN,
+rede VARCHAR(100),
+e_lider_de_celula BOOLEAN,
+ativo BOOLEAN,
+deletado BOOLEAN)  ENGINE=INNODB;
+
+CREATE  TABLE  IF NOT EXISTS  legendarios_certificados (         
+n_lgnd  INT PRIMARY KEY,        
+titulo_imovel VARCHAR(100),
+descricao_imovel VARCHAR(255),
+endereco_imovel VARCHAR(155),
+cep_imovel VARCHAR(255),
+valor_imovel VARCHAR(255),
+data_de_edicao  DATE,
+status  TINYINT  NOT NULL,
+priority  TINYINT  NOT NULL,
+description  TEXT,
+data_de_criacao  TIMESTAMP  DEFAULT  CURRENT_TIMESTAMP)  ENGINE=INNODB;
