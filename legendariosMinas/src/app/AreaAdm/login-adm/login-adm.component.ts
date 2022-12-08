@@ -4,18 +4,17 @@ import { PoPageLoginLiterals } from '@po-ui/ng-templates';
 @Component({
   selector: 'app-login-adm',
   templateUrl: './login-adm.component.html',
-  styleUrls: ['./login-adm.component.css']
+  styleUrls: ['./login-adm.component.css'],
 })
 export class LoginAdmComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   customLiterals: PoPageLoginLiterals = {
-    welcome: 'Bem vindo ao Painel ADM Legendários Minas!'
+    welcome: 'Bem vindo ao Painel ADM Legendários Minas!',
   };
 
   ngOnInit(): void {
-    sessionStorage.setItem("ExibeRodape","0");
+    sessionStorage.setItem('ExibeRodape', '0');
   }
-
 }

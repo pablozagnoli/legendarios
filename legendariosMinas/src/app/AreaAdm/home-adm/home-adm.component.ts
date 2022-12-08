@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeAdmComponent implements OnInit {
 
+  categories: string[] = ['teste3', 'teste2'];
+
+  series = [
+    { label: 'Legendários', data: 100 },
+    { label: 'Senderistas', data: 10 },
+  ];
+
+
   constructor() { }
 
   ngOnInit(): void {
