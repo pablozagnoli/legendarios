@@ -31,3 +31,8 @@ C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\leg
 C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Debug\net5.0\legendarios_API.pdb
 C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Debug\net5.0\legendarios_API.genruntimeconfig.cache
 C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Debug\net5.0\ref\legendarios_API.dll
+C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\bin\Debug\net5.0\Dapper.dll
+C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\bin\Debug\net5.0\MySqlConnector.dll
+C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

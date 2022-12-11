@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { legendarios } from '../Model/legendariosModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeAdmService {
-API: string = "https://localhost:5001/legendarios/trazer";
+private BASEURL = `${environment.baseURL}legendarios/`;
 
   constructor(private httpcliente: HttpClient) { }
 
   getTodosLegendarios(): Observable<legendarios[]>{
-    return this.httpcliente.get<legendarios[]>(this.API);
+    return this.httpcliente.get<legendarios[]>(`${this.BASEURL}trazer`);
   }
 }

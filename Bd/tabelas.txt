@@ -13,8 +13,8 @@ description  TEXT,
 data_de_criacao  TIMESTAMP  DEFAULT  CURRENT_TIMESTAMP)  ENGINE=INNODB;
 
 CREATE  TABLE  IF NOT EXISTS legendarios (  
-id_legendario INT  AUTO_INCREMENT  PRIMARY KEY,       
-n_lgnd  INT PRIMARY KEY,         
+id_legendario INT UNIQUE KEY AUTO_INCREMENT,       
+n_lgnd  VARCHAR(100) PRIMARY KEY,         
 nome VARCHAR(200),
 rec VARCHAR(100),
 email VARCHAR(100),
@@ -23,15 +23,15 @@ cadastro_pessoa VARCHAR(255),
 data_de_nascimento  DATE,
 estado_civil VARCHAR(50),
 profissao VARCHAR(100),
-tipo sanguineo VARCHAR(50),
+tipo_sanguineo VARCHAR(50),
 religiao VARCHAR(100),
 igreja VARCHAR(100),
-e_batizado BOOLEAN,
-frequanta_celula BOOLEAN,
+e_batizado INT,
+frequanta_celula INT,
 rede VARCHAR(100),
-e_lider_de_celula BOOLEAN,
-ativo BOOLEAN,
-deletado BOOLEAN)  ENGINE=INNODB;
+e_lider_de_celula INT,
+ativo INT,
+deletado INT)  ENGINE=INNODB;
 
 CREATE  TABLE  IF NOT EXISTS  legendarios_certificados (         
 n_lgnd  INT PRIMARY KEY,        
@@ -45,3 +45,8 @@ status  TINYINT  NOT NULL,
 priority  TINYINT  NOT NULL,
 description  TEXT,
 data_de_criacao  TIMESTAMP  DEFAULT  CURRENT_TIMESTAMP)  ENGINE=INNODB;
+
+---------------------INSERTS-------------------------------------
+//IMPORTE QUE PARA INSERIR UMA DATA O ANO TEM QUE VIR PRIMEIRO
+INSERT INTO legendarios (n_lgnd, nome,         rec,     email,            celular,        cadastro_pessoa,  data_de_nascimento,  estado_civil,  profissao,     tipo_sanguineo,  religiao,   igreja,            e_batizado, frequanta_celula,   rede,    e_lider_de_celula, ativo, deletado)
+VALUES                  (123,    'Stavanger', '787x' ,  'Norway@dsadsa', '319898989898', '124578898956',    '1999-05-06',        'solteiro',   'Engenheiro',    'AB+',          'Cristão',  'BATISTA CENTRAL',  1,         1,                   'WAKE',  0,                1,       0);

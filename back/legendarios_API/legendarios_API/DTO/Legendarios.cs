@@ -12,7 +12,7 @@ namespace legendarios_API.DTO
         /// <summary>
         /// numero de legendário
         /// </summary>
-        public int n_lgnd { get; set; }
+        public string n_lgnd { get; set; }
         
         /// <summary>
         /// nome do legendario
