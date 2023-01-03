@@ -8,11 +8,11 @@ import { legendarios } from '../Model/legendariosModel';
   providedIn: 'root'
 })
 export class HomeAdmService {
-private BASEURL = `${environment.baseURL}legendarios/`;
+private BASEURL = `${environment.baseURL}`;
 
   constructor(private httpcliente: HttpClient) { }
 
-  getTodosLegendarios(): Observable<legendarios[]>{
-    return this.httpcliente.get<legendarios[]>(`${this.BASEURL}trazer`);
+  getTodosLegendarios(param: any): Observable<legendarios[]>{
+    return this.httpcliente.post<legendarios[]>(`${this.BASEURL}trazer`,param);
   }
 }

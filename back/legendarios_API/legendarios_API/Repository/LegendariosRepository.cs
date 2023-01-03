@@ -11,6 +11,7 @@ using System.Data.Common;
 using legendarios_API.DTO;
 using System.Threading.Tasks;
 using legendarios_API.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace legendarios_API.Repository
 {
@@ -35,13 +36,35 @@ namespace legendarios_API.Repository
             return result;
         }
 
-        public async Task<IEnumerable<LegendariosDTO>> GetAllLegendarios()
+        public async Task<IEnumerable<LegendariosDTO>> GetAllLegendarios(LegendariosParams param)
         {
-            var sql = "SELECT * FROM legendarios";
+            try
+            {
+                var sql = "SELECT * FROM legendarios";
 
-            var result = await this._conn.QueryAsync<LegendariosDTO>(sql);
+                var response = new List<LegendariosDTO>();
 
-            return result;
+                var result = await this._conn.QueryAsync<LegendariosDTO>(sql);
+
+                response = result.ToList();
+
+                if (!string.IsNullOrEmpty(param.NOMELEGENDARIO))
+                {
+                    response = result.Where(x => x.nome.Contains(param.NOMELEGENDARIO)).ToList();
+                }
+
+                if (param.CODIGOLEGENDARIO != null && param.CODIGOLEGENDARIO != 0)
+                {
+                    response = result.Where(x => x.n_lgnd.ToString().Contains(param.CODIGOLEGENDARIO.ToString())).ToList();
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
         }
     }
 }

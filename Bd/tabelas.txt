@@ -1,3 +1,8 @@
+---------------------------------CRIAÇAO DATABASE--------------------------------------
+Create database DBLEGENDARIOS
+
+USE DBLEGENDARIOS
+---------------------------------CRIAÇAO DAS TABELAS-----------------------------------
 
 CREATE  TABLE  IF NOT EXISTS  senderistas (         
 id_senderista  INT  AUTO_INCREMENT  PRIMARY KEY,         
@@ -46,7 +51,7 @@ priority  TINYINT  NOT NULL,
 description  TEXT,
 data_de_criacao  TIMESTAMP  DEFAULT  CURRENT_TIMESTAMP)  ENGINE=INNODB;
 
----------------------INSERTS-------------------------------------
+---------------------------------INSERTS-------------------------------------
 //IMPORTE QUE PARA INSERIR UMA DATA O ANO TEM QUE VIR PRIMEIRO
 INSERT INTO legendarios (n_lgnd, nome,         rec,     email,            celular,        cadastro_pessoa,  data_de_nascimento,  estado_civil,  profissao,     tipo_sanguineo,  religiao,   igreja,            e_batizado, frequanta_celula,   rede,    e_lider_de_celula, ativo, deletado)
 VALUES                  (123,    'Stavanger', '787x' ,  'Norway@dsadsa', '319898989898', '124578898956',    '1999-05-06',        'solteiro',   'Engenheiro',    'AB+',          'Cristão',  'BATISTA CENTRAL',  1,         1,                   'WAKE',  0,                1,       0);

@@ -8,6 +8,6 @@ namespace legendarios_API.Interfaces
     {
         IEnumerable<LegendariosDTO> GetDept();
         LegendariosDTO GetDeptByDeptNo(int deptNo);
-        Task<IEnumerable<LegendariosDTO>> GetAllLegendarios();
+        Task<IEnumerable<LegendariosDTO>> GetAllLegendarios(LegendariosParams param);
     }
 }

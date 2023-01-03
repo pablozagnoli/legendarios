@@ -1,0 +1,145 @@
+table {
+  width: 100%;
+}
+
+td {
+  text-align: center;
+  padding: 0 10px;
+}
+.table-expanded-cell {
+  padding: 0 !important;
+  ::ng-deep {
+    th.mat-header-cell {
+      padding-right: 10px !important;
+      padding-left: 10px !important;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+  }
+}
+
+tr th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+  border-bottom: 1px solid #efefef;
+}
+
+.cdk-column-dtenvioautorizacao {
+  max-width: 120px !important;
+  overflow: hidden;
+}
+
+tr th,
+tr td {
+  padding: 0 !important;
+  font-size: 12.5px !important;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.7rem;
+  color: #575757;
+  min-width: 60px;
+
+  @media screen and (max-width: 768px) {
+    min-width: 120px;
+  }
+}
+
+.is-entrega-futura + tr {
+  ::ng-deep {
+    app-table-itens-orc {
+      th,
+      td {
+        border-color: #cdd716 !important;
+        background-color: #cdd716 !important;
+      }
+    }
+  }
+}
+
+.is-entrega-futura td {
+  background-color: yellow !important;
+  border-right: 1px solid yellow !important;
+}
+
+tr th {
+  font-size: 9.5px !important;
+  padding: 4.5px !important;
+  font-weight: 800;
+}
+
+tr td {
+  border-right: 1px solid #efefef;
+  padding: 0px 2px !important;
+}
+
+.example-expanded-row {
+  td,
+  th {
+    border-right: 1px solid rgb(0 0 0 / 14%) !important;
+  }
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-expanded-row {
+  background: #dedede;
+}
+.example-element-detail {
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid #dedede;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  font-weight: lighter;
+  // margin: 40px 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+i {
+  border-radius: 50%;
+}
+
+.mat-column-dtenvioautorizacao {
+  max-width: 70px;
+}
+
+td:hover {
+  i {
+    transform: translateY(-5px);
+    color: #00644e;
+  }
+
+  i.rotateX-half {
+    transform: translateY(-5px) rotateX(0.5turn);
+  }
+}

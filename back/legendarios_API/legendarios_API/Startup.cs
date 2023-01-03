@@ -27,6 +27,46 @@ namespace legendarios_API
         public void ConfigureServices(IServiceCollection services)
         {
 
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Policy1",
+                    policy =>
+                    {
+                        policy.WithOrigins("https://pablozagnoli.github.io/",
+                                           "https://pablozagnoli.github.io",
+                                           "http://localhost:4200",
+                                           "https://localhost:4200/",
+                                           "http://localhost:5000",
+                                           "https://localhost:5000/",
+                                           "http://173.224.117.181:40",
+                                           "http://localhost:4200/",
+                                            "http://localhost:4200",
+                                           "https://localhost:5001/",
+                                           "https://localhost:5001"
+                                           );
+                    });
+
+                options.AddPolicy("AnotherPolicy",
+                    policy =>
+                    {
+                        policy.WithOrigins("https://pablozagnoli.github.io/",
+                                           "https://pablozagnoli.github.io",
+                                           "http://localhost:4200",
+                                           "https://localhost:4200/",
+                                           "http://localhost:5000",
+                                           "https://localhost:5000/",
+                                           "https://pablozagnoli.github.io/",
+                                           "http://173.224.117.181:40",
+                                           "http://localhost:4200/",
+                                            "http://localhost:4200",
+                                           "https://localhost:5001/",
+                                           "https://localhost:5001")
+                                                                            .AllowAnyHeader()
+                                                                            .AllowAnyMethod();
+                    });
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -47,6 +87,8 @@ namespace legendarios_API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

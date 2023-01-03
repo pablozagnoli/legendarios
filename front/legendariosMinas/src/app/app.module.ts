@@ -17,6 +17,10 @@ import { PoTemplatesModule } from '@po-ui/ng-templates';
 import { LoginAdmComponent } from './AreaAdm/login-adm/login-adm.component';
 import { CadastroSenderistasComponent } from './cadastro-senderistas/cadastro-senderistas.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { TableHomeComponent } from './AreaAdm/home-adm/tablehome/table-home/table-home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditarLegendarioComponent } from './AreaAdm/home-adm/editar-legendario/editar-legendario.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import { MatTableModule } from '@angular/material/table';
     ConsultarLegendarioComponent,
     HomeAdmComponent,
     LoginAdmComponent,
-    CadastroSenderistasComponent
+    CadastroSenderistasComponent,
+    TableHomeComponent,
+    EditarLegendarioComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,10 @@ import { MatTableModule } from '@angular/material/table';
     PoModule,
     RouterModule.forRoot([]),
     PoTemplatesModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@
 using legendarios_API.DTO;
 using legendarios_API.Interfaces;
 using legendarios_API.Repository;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -24,10 +25,11 @@ namespace legendarios_API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("trazer")]
-        public async Task<IActionResult> GetLegendarios()
+        [EnableCors("Policy1")]
+        [HttpPost("trazer")]
+        public async Task<IActionResult> GetLegendarios([FromBody] LegendariosParams param)
         {
-            var result = await _repositorio.GetAllLegendarios();
+            var result = await _repositorio.GetAllLegendarios(param);
 
             return Ok(result);
         }

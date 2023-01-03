@@ -1,22 +1,17 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src
-COPY ["legendarios_API/legendarios_API.csproj", "legendarios_API/"]
-RUN dotnet restore "legendarios_API/legendarios_API.csproj"
-COPY . .
-WORKDIR "/src/legendarios_API"
-RUN dotnet build "legendarios_API.csproj" -c Release -o /app/build
+COPY . ./
+RUN dotnet publish -c Release -o out
 
-FROM build AS publish
-RUN dotnet publish "legendarios_API.csproj" -c Release -o /app/publish /p:UseAppHost=false
-
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
-COPY --from=publish /app/publish .
+EXPOSE 80
+EXPOSE 443
+COPY --from=build-env /app/out .
+
+ENV ASPNETCORE_ENVIRONMENT Production
+
 ENTRYPOINT ["dotnet", "legendarios_API.dll"]

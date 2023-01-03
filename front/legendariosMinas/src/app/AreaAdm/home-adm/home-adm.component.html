@@ -3,52 +3,61 @@
 
   <div class="container-fluid">
     <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+
+      <!-- <nav id="sidebarMenu" class="col-md-2 col-lg-2 d-md-block bg-light sidebar collapse">
+
         <div class="position-sticky pt-3 sidebar-sticky">
           <ul class="nav flex-column">
+
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">
                 <span data-feather="home" class="align-text-bottom"></span>
                 Dashboard
               </a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="file" class="align-text-bottom"></span>
                 Pesquisar
               </a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="shopping-cart" class="align-text-bottom"></span>
-                Produtos
+                Legendarios
               </a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="users" class="align-text-bottom"></span>
                 Cadastros
               </a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="bar-chart-2" class="align-text-bottom"></span>
                 Criar Anuncio
               </a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="layers" class="align-text-bottom"></span>
 
               </a>
             </li>
+
           </ul>
 
 
         </div>
-      </nav>
+      </nav> -->
 
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <main class="col-md-12 ms-sm-auto col-lg-12 px-md-4">
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Dashboard</h1>
@@ -64,190 +73,15 @@
           </div>
         </div>
 
-        <po-chart [p-categories]="this.categories" [p-height]="500" [p-series]="this.series" p-title="grafico teste">
-        </po-chart>
-
-        <div class="table-responsive">
-
-          <h2>Legendarios</h2>
-          <table mat-table [dataSource]="listaDadosLegendarios" class="table table-striped table-sm">
-
-            <ng-container matColumnDef="id_legendario">
-              <th mat-header-cell *matHeaderCellDef>ID LEGENDARIO</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.id_legendario }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef>TOTAL:</td>
-            </ng-container>
-
-            <ng-container matColumnDef="n_lgnd">
-              <th mat-header-cell *matHeaderCellDef>NUMERO LEGENDARIO</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.n_lgnd }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="nome">
-              <th mat-header-cell *matHeaderCellDef>NOME</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.nome }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="rec">
-              <th mat-header-cell *matHeaderCellDef>REC</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.rec }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="email">
-              <th mat-header-cell *matHeaderCellDef>EMAIL</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.email }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef>{{ listaDadosLegendarios.length }}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="celular">
-              <th mat-header-cell *matHeaderCellDef>CELULAR/th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.celular }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="cadastro_pessoa">
-              <th mat-header-cell *matHeaderCellDef>CPF</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.cadastro_pessoa }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="data_de_nascimento">
-              <th mat-header-cell *matHeaderCellDef>DATA NASCIMENTO</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.data_de_nascimento }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="estado_civil">
-              <th mat-header-cell *matHeaderCellDef>ESTADO CIVIL</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.estado_civil }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="profissao">
-              <th mat-header-cell *matHeaderCellDef>PROFISSAO</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.profissao }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="tipo_sanguineo">
-              <th mat-header-cell *matHeaderCellDef>TIPO SANGUINEO</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.tipo_sanguineo }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="religiao">
-              <th mat-header-cell *matHeaderCellDef>RELIGIAO</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.religiao }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="igreja">
-              <th mat-header-cell *matHeaderCellDef>IGREJA</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.igreja }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="e_batizado">
-              <th mat-header-cell *matHeaderCellDef>E BATIZADO</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.e_batizado }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="frequanta_celula">
-              <th mat-header-cell *matHeaderCellDef>FREQUENTA CELULA</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.frequanta_celula }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="rede">
-              <th mat-header-cell *matHeaderCellDef>REDE</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.rede }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="e_lider_de_celula">
-              <th mat-header-cell *matHeaderCellDef>LIDER DE CELULA</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.e_lider_de_celula }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="ativo">
-              <th mat-header-cell *matHeaderCellDef>ATIVO</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.ativo }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <ng-container matColumnDef="deletado">
-              <th mat-header-cell *matHeaderCellDef>DELETADO</th>
-              <td class="position-relative" mat-cell *matCellDef="let element"
-                (click)="onClickGridItenDadosTecnicos($event, element, 'produtosOrcamentoBuscados')">
-                {{ element.deletado }}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="listaDadosLegendariosColumnsGrid; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: listaDadosLegendariosColumnsGrid"></tr>
-            <tr mat-footer-row *matFooterRowDef="listaDadosLegendariosColumnsGrid; sticky: true"></tr>
-          </table>
+        <div>
+          <po-chart [p-categories]="this.categories" [p-height]="500" [p-series]="this.series" p-title="grafico teste">
+          </po-chart>
         </div>
+
+        <div class="table-responsive orcamentos scroll-grey">
+          <app-table-home></app-table-home>
+        </div>
+
       </main>
     </div>
   </div>
