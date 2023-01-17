@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   PoDynamicFormField,
   PoDynamicFormFieldChanged,
   PoDynamicFormValidation,
   PoNotificationService,
 } from '@po-ui/ng-components';
+import { HomeAdmService } from '../AreaAdm/home-adm/service/home-adm.service';
 import { CadatroSenderitasServiceService } from './services/cadatro-senderitas-service.service';
 
 @Component({
@@ -36,10 +38,16 @@ export class CadastroSenderistasComponent implements OnInit {
   termoParticipacao = ""
 
   constructor(public poNotification: PoNotificationService,
-              readonly cadatroSenderitasServiceService: CadatroSenderitasServiceService,
-              private _formBuilder: FormBuilder) { }
+    readonly cadatroSenderitasServiceService: CadatroSenderitasServiceService,
+    private _formBuilder: FormBuilder,
+    private router: Router,
+    private serviceHomeAdm: HomeAdmService) { }
 
   ngOnInit() { }
+
+  mercadoIntegrate() {
+
+  }
 
   onChangeFields(
     changedValue: PoDynamicFormFieldChanged
@@ -69,8 +77,27 @@ export class CadastroSenderistasComponent implements OnInit {
   });
   isLinear = false;
 
-  AlterarVisibilidade(){
+  AlterarVisibilidade() {
     this.Cadastrovisivel = false;
     this.Textovisivel = true;
+  }
+
+  pagamento() {
+    let urlPagamento = "";
+    this.serviceHomeAdm.getUrlPagameto().subscribe({
+      next(result: string) {
+        urlPagamento = result;
+      },
+      error(result) {
+
+        urlPagamento = result.error.text;
+        window.open(urlPagamento);
+
+      }
+    }
+    )
+
+
+    //this.router.navigate([urlPagamento]);
   }
 }

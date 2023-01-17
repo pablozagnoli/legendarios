@@ -143,13 +143,14 @@
 
     <hr class="my-4">
 
-    <button [hidden]="Textovisivel" (click)="AlterarVisibilidade()" class="w-100 btn btn-primary btn-lg" type="submit">Realizar Inscrição</button>
+    <button [hidden]="Textovisivel" (click)="AlterarVisibilidade()" class="w-100 btn btn-primary btn-lg"
+      type="submit">Realizar Inscrição</button>
 
     <hr class="my-4">
 
   </div>
 
-  <div [hidden]="Cadastrovisivel"  class="container">
+  <div [hidden]="Cadastrovisivel" class="container">
     <main>
       <div class="py-5 text-center">
         <h2>{{this.FormDadosLabels.Titulo}}</h2>
@@ -737,7 +738,7 @@ Belo Horizonte – MG, junho de 2021.
             </div>
 
 
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Finalizar Inscrição</button>
+            <button class="w-100 btn btn-primary btn-lg" (click)="pagamento()" type="submit">Finalizar Inscrição</button>
           </form>
         </div>
       </div>

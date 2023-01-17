@@ -20,4 +20,8 @@ public numLegendario: string | undefined;
   getLegendario(id: string): Observable<legendarios>{
     return this.httpcliente.get<legendarios>(`${this.BASEURL}trazer/` + id);
   }
+
+  getUrlPagameto(): Observable<string>{
+    return this.httpcliente.get<string>(`${this.BASEURL}url-compra`);
+  }
 }

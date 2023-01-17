@@ -2,6 +2,7 @@
 using legendarios_API.DTO;
 using legendarios_API.Interfaces;
 using legendarios_API.Repository;
+using legendarios_API.Service;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -39,6 +40,22 @@ namespace legendarios_API.Controllers
             var result = await _repositorio.GetLegendarioById(idlegendario);
 
             return Ok(result);
+        }
+
+        [HttpGet("notificacoes-de-compra")]
+        public async Task<IActionResult> notificacoesDeCompra(string idlegendario)
+        {
+            var result = await _repositorio.GetLegendarioById(idlegendario);
+
+            return Ok(result);
+        }
+
+        [HttpGet("url-compra")]
+        public async Task<IActionResult> urlCompra(string idlegendario)
+        {
+            var result = await PagamentosServices.MercadoPagoPagamentosAsync();
+
+            return Ok(result.SandboxInitPoint);
         }
     }
 }

@@ -12,6 +12,7 @@ using legendarios_API.DTO;
 using System.Threading.Tasks;
 using legendarios_API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using legendarios_API.Service;
 
 namespace legendarios_API.Repository
 {
@@ -69,6 +70,7 @@ namespace legendarios_API.Repository
 
         public async Task<LegendariosDTO> GetLegendarioById(string IdLegendario)
         {
+
             try
             {
                 var sql = $"SELECT * FROM legendarios where n_lgnd = {IdLegendario}";
