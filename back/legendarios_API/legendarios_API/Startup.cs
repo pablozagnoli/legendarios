@@ -30,41 +30,10 @@ namespace legendarios_API
 
             services.AddCors(options =>
             {
-                options.AddPolicy("Policy1",
-                    policy =>
-                    {
-                        policy.WithOrigins("https://pablozagnoli.github.io/",
-                                           "https://pablozagnoli.github.io",
-                                           "http://localhost:4200",
-                                           "https://localhost:4200/",
-                                           "http://localhost:5000",
-                                           "https://localhost:5000/",
-                                           "http://173.224.117.181:40",
-                                           "http://localhost:4200/",
-                                            "http://localhost:4200",
-                                           "https://localhost:5001/",
-                                           "https://localhost:5001"
-                                           );
-                    });
-
-                options.AddPolicy("AnotherPolicy",
-                    policy =>
-                    {
-                        policy.WithOrigins("https://pablozagnoli.github.io/",
-                                           "https://pablozagnoli.github.io",
-                                           "http://localhost:4200",
-                                           "https://localhost:4200/",
-                                           "http://localhost:5000",
-                                           "https://localhost:5000/",
-                                           "https://pablozagnoli.github.io/",
-                                           "http://173.224.117.181:40",
-                                           "http://localhost:4200/",
-                                            "http://localhost:4200",
-                                           "https://localhost:5001/",
-                                           "https://localhost:5001")
-                                                                            .AllowAnyHeader()
-                                                                            .AllowAnyMethod();
-                    });
+                options.AddPolicy("CorsPolicy", policy =>policy
+                                                               .AllowAnyOrigin()
+                                                               .AllowAnyMethod()
+                                                               .AllowAnyHeader());
             });
 
             services.AddControllers();
@@ -84,11 +53,11 @@ namespace legendarios_API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "legendarios_API v1"));
             }
 
+            app.UseCors("CorsPolicy");
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseCors();
 
             app.UseAuthorization();
 

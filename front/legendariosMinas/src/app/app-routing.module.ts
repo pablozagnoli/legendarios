@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeAdmComponent } from './AreaAdm/home-adm/home-adm.component';
-import { LoginAdmComponent } from './AreaAdm/login-adm/login-adm.component';
-import { CadastroSenderistasComponent } from './cadastro-senderistas/cadastro-senderistas.component';
-import { HomeComponent } from './home/home.component';
+import { EditarLegendarioComponent } from './pages/AreaAdm/home-adm/editar-legendario/editar-legendario.component';
+import { HomeAdmComponent } from './pages/AreaAdm/home-adm/home-adm.component';
+import { LoginAdmComponent } from './pages/AreaAdm/login-adm/login-adm.component';
+import { CadastroSenderistasComponent } from './pages/cadastro-senderistas/cadastro-senderistas.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'home-adm',
     component: HomeAdmComponent
+  },
+  {
+    path: 'editar-legendario',
+    component: EditarLegendarioComponent
   }
 ];
 

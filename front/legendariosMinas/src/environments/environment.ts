@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseURL: "http://173.224.117.181:40/legendarios/"
-  //baseURL: "https://localhost:5001/"
+  //baseURL: "https://localhost:5001/legendarios/"
 };
 
 /*

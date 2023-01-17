@@ -25,11 +25,18 @@ namespace legendarios_API.Controllers
             _logger = logger;
         }
 
-        [EnableCors("Policy1")]
         [HttpPost("trazer")]
         public async Task<IActionResult> GetLegendarios([FromBody] LegendariosParams param)
         {
             var result = await _repositorio.GetAllLegendarios(param);
+
+            return Ok(result);
+        }
+
+        [HttpGet("trazer/{idlegendario}")]
+        public async Task<IActionResult> GetLegendarioById(string idlegendario)
+        {
+            var result = await _repositorio.GetLegendarioById(idlegendario);
 
             return Ok(result);
         }

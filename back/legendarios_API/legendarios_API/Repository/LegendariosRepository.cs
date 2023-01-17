@@ -50,7 +50,7 @@ namespace legendarios_API.Repository
 
                 if (!string.IsNullOrEmpty(param.NOMELEGENDARIO))
                 {
-                    response = result.Where(x => x.nome.Contains(param.NOMELEGENDARIO)).ToList();
+                    response = result.Where(x => x.nome.ToUpper().Contains(param.NOMELEGENDARIO.ToUpper())).ToList();
                 }
 
                 if (param.CODIGOLEGENDARIO != null && param.CODIGOLEGENDARIO != 0)
@@ -59,6 +59,25 @@ namespace legendarios_API.Repository
                 }
 
                 return response;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+        public async Task<LegendariosDTO> GetLegendarioById(string IdLegendario)
+        {
+            try
+            {
+                var sql = $"SELECT * FROM legendarios where n_lgnd = {IdLegendario}";
+
+                var response = new LegendariosDTO();
+
+                var result = await this._conn.QueryFirstAsync<LegendariosDTO>(sql);
+
+                return result;
             }
             catch (Exception ex)
             {
