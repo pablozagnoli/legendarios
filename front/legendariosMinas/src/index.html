@@ -7,8 +7,74 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script src="https://sdk.mercadopago.com/js/v2">alert('adsadsa')</script>
 </head>
 <body>
+
+  <script type="text/javascript">
+    const mp = new MercadoPago('TEST-f6ab8d6f-3a19-4e6a-91cf-7e9fce3b67b4');
+
+    const bricksBuilder = mp.bricks();
+
+
+    const renderPaymentBrick = async (bricksBuilder) => {
+      const settings = {
+        initialization: {
+          amount: 100, // valor total a ser pago
+        },
+        customization: {
+          paymentMethods: {
+            creditCard: 'all',
+            debitCard: 'all',
+          },
+        },
+        callbacks: {
+          onReady: () => {
+            /*
+              Callback chamado quando o Brick estiver pronto.
+              Aqui você pode ocultar loadings do seu site, por exemplo.
+            */
+          },
+          onSubmit: ({ selectedPaymentMethod, formData }) => {
+            // callback chamado ao clicar no botão de submissão dos dados
+            return new Promise((resolve, reject) => {
+              fetch("https://localhost:5001/pagamentos/criar-pagameto", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData)
+              })
+                .then((response) => {
+
+                  resolve();
+
+                })
+                .catch((error) => {
+                  // lidar com a resposta de erro ao tentar criar o pagamento
+                  reject();
+                })
+            });
+          },
+          onError: (error) => {
+            // callback chamado para todos os casos de erro do Brick
+            console.error(error);
+          },
+        },
+      };
+
+      window.paymentBrickController = await bricksBuilder.create(
+        'payment',
+        'containerDePagamento',
+        settings
+      );
+    };
+
+    setTimeout(6000);
+    renderPaymentBrick(bricksBuilder);
+  </script>
+
   <app-root></app-root>
 </body>
 </html>

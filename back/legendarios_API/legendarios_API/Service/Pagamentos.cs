@@ -6,6 +6,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MercadoPago.Client;
 using MercadoPago.Resource.Payment;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Net.Http;
+using System.Text;
+using System;
+using legendarios_API.DTO;
 
 namespace legendarios_API.Service
 {
@@ -51,6 +58,54 @@ namespace legendarios_API.Service
 
 
             return payment;
+        }
+
+        public static async Task<Payment> CriarPagamento(DadosPagamentoDTO dadosPagamento)
+        {
+            MercadoPagoConfig.AccessToken = "TEST-567620616417230-011715-47c8c45fa26caead6f15578546ddf02f-335241271";
+
+            var request = new PaymentCreateRequest
+            {
+                TransactionAmount = dadosPagamento.transaction_amount,
+                Token = dadosPagamento.token,
+                Installments = dadosPagamento.installments,  //QUANTIDADE DE PARCELAS
+                Payer = new PaymentPayerRequest
+                {
+                    Type = "customer",
+                    Email = dadosPagamento.payer.email,
+                    Identification = new MercadoPago.Client.Common.IdentificationRequest
+                    {
+                        Number = dadosPagamento.payer.identification.number,
+                        Type = dadosPagamento.payer.identification.type
+                    }
+                },
+            };
+
+            var client = new PaymentClient();
+            Payment payment = await client.CreateAsync(request);
+
+            return payment;
+        }
+
+        public Payment GetInfoPayment(long id)
+        {
+            // var payment = Payment.FindById(id);
+            return null;
+        }
+
+        public Payment RefundPayment(long id, decimal valueToRefund = 0)
+        {
+            //var payment = Payment.FindById(id);
+            if (valueToRefund == 0)
+            {
+                //  payment.Refund();
+            }
+            else
+            {
+                //payment.Refund(valueToRefund);
+            }
+
+            return null;
         }
 
     }

@@ -10,6 +10,7 @@ export class PagamentoCadastroSenderistaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

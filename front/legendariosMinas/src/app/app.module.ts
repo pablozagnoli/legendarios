@@ -43,7 +43,7 @@ import { PagesModule } from './pages/pages.module';
     PagesModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: Window, useValue: window }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
