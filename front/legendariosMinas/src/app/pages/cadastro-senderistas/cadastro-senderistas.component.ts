@@ -32,9 +32,6 @@ export class CadastroSenderistasComponent implements OnInit {
     ContinueChecheckoutButoon: ""
   };
 
-  Cadastrovisivel: boolean = true;
-  Textovisivel: boolean = false;
-
   termoParticipacao = ""
 
   constructor(public poNotification: PoNotificationService,
@@ -77,10 +74,7 @@ export class CadastroSenderistasComponent implements OnInit {
   });
   isLinear = false;
 
-  AlterarVisibilidade() {
-    this.Cadastrovisivel = false;
-    this.Textovisivel = true;
-  }
+
 
   pagamento() {
     let urlPagamento = "";
