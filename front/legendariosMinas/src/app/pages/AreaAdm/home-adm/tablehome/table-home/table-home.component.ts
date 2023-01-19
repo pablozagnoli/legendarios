@@ -114,7 +114,7 @@ export class TableHomeComponent implements OnInit {
 
     this.router.navigate(["editar-legendario"], {
       queryParams: {
-        numorca: numleg,
+        numLegendario: numleg,
       },
     });
   }

@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace legendarios_API
@@ -27,10 +29,22 @@ namespace legendarios_API
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddHttpClient("HttpClientName", client =>
+            {
+                // code to configure headers etc..
+            }).ConfigurePrimaryHttpMessageHandler(() =>
+            {
+                var handler = new HttpClientHandler();
+
+
+                handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+
+                return handler;
+            });
 
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy", policy =>policy
+                options.AddPolicy("CorsPolicy", policy => policy
                                                                .AllowAnyOrigin()
                                                                .AllowAnyMethod()
                                                                .AllowAnyHeader());
@@ -56,6 +70,8 @@ namespace legendarios_API
             app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
+
+            app.UseCertificateForwarding();
 
             app.UseRouting();
 

@@ -40,13 +40,14 @@ export class EditarLegendarioComponent implements OnInit {
   }
 
   getNumLegendário() {
-    this.route.params.subscribe(params => this.numLegendario = params['id']);
-    alert(this.numLegendario);
+    this.route.params.subscribe(params =>
+      this.numLegendario = params['numLegendario']);
+
     this.getDadosLegendario();
   }
 
   getDadosLegendario(){
-    this.serviceHomeAdm.getLegendario( sessionStorage.getItem("numLegendario")! ).subscribe((resultado) => {
+    this.serviceHomeAdm.getLegendario( this.numLegendario! ).subscribe((resultado) => {
       this.dadosLegendario = resultado;
       this.inicilizaForm();
     });

@@ -62,6 +62,8 @@ import { FirstSteepComponent } from "./cadastro-senderistas/firstSteep/first-pag
 import { SecondSteepComponent } from "./cadastro-senderistas/SecondSteep/second-page/second-steep.component";
 import { ThirthSteepComponent } from "./cadastro-senderistas/ThirthSteep/ThirthPage/thirth-steep/thirth-steep.component";
 import { CdkStepper, STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
+import { PagamentoCadastroSenderistaComponent } from './cadastro-senderistas/pagamento-cadastro-senderista/pagamento-cadastro-senderista.component';
+import { DescricaoEventoCadastroSenderistaComponent } from './cadastro-senderistas/descricao-evento-cadastro-senderista/descricao-evento-cadastro-senderista.component';
 
 @NgModule({
     declarations: [
@@ -73,7 +75,9 @@ import { CdkStepper, STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
         EditarLegendarioComponent,
         FirstSteepComponent,
         SecondSteepComponent,
-        ThirthSteepComponent
+        ThirthSteepComponent,
+        PagamentoCadastroSenderistaComponent,
+        DescricaoEventoCadastroSenderistaComponent
     ],
     providers: [ MatStepper,CdkStepper,],
     imports: [

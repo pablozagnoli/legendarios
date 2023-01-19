@@ -42,6 +42,16 @@ namespace legendarios_API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("url-compra")]
+        public async Task<IActionResult> urlCompra(string idlegendario)
+        {
+            var result = await PagamentosServices.MercadoPagoPagamentosAsync();
+
+            var resultpayment = await PagamentosServices.MercadoPagoGetInfosPagamentos();
+
+            return Ok(result.SandboxInitPoint);
+        }
+
         [HttpGet("notificacoes-de-compra")]
         public async Task<IActionResult> notificacoesDeCompra(string idlegendario)
         {
@@ -50,12 +60,12 @@ namespace legendarios_API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("url-compra")]
-        public async Task<IActionResult> urlCompra(string idlegendario)
+        [HttpGet("verficar-pagameto")]
+        public async Task<IActionResult> verificarPagamento(string idlegendario)
         {
-            var result = await PagamentosServices.MercadoPagoPagamentosAsync();
+            var result = await _repositorio.GetLegendarioById(idlegendario);
 
-            return Ok(result.SandboxInitPoint);
+            return Ok(result);
         }
     }
 }
