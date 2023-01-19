@@ -27,6 +27,7 @@
           paymentMethods: {
             creditCard: 'all',
             debitCard: 'all',
+            bankTransfer: ['pix'],
           },
         },
         callbacks: {
@@ -38,8 +39,10 @@
           },
           onSubmit: ({ selectedPaymentMethod, formData }) => {
             // callback chamado ao clicar no botão de submissão dos dados
+            // "https://localhost:5001/pagamentos/criar-pagameto"
+            // "http://173.224.117.181:40/pagamentos/criar-pagameto"
             return new Promise((resolve, reject) => {
-              fetch("https://localhost:5001/pagamentos/criar-pagameto", {
+              fetch("http://173.224.117.181:40/pagamentos/criar-pagameto", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
