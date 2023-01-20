@@ -13,6 +13,7 @@ using System.Net.Http;
 using System.Text;
 using System;
 using legendarios_API.DTO;
+using AutoMapper.Execution;
 
 namespace legendarios_API.Service
 {
@@ -68,6 +69,7 @@ namespace legendarios_API.Service
             {
                 TransactionAmount = dadosPagamento.transaction_amount,
                 Token = dadosPagamento.token,
+                PaymentMethodId = dadosPagamento.payment_method_id,
                 Installments = dadosPagamento.installments,  //QUANTIDADE DE PARCELAS
                 Payer = new PaymentPayerRequest
                 {
@@ -75,8 +77,8 @@ namespace legendarios_API.Service
                     Email = dadosPagamento.payer.email,
                     Identification = new MercadoPago.Client.Common.IdentificationRequest
                     {
-                        Number = dadosPagamento.payer.identification.number,
-                        Type = dadosPagamento.payer.identification.type
+                        Number = dadosPagamento.payer.identification != null ? dadosPagamento.payer.identification.number : "",
+                        Type = dadosPagamento.payer.identification != null ? dadosPagamento.payer.identification.type : ""
                     }
                 },
             };

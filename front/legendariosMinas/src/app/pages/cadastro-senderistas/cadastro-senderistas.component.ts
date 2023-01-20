@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
   PoDynamicFormFieldChanged,
@@ -17,6 +17,10 @@ import { CadatroSenderitasServiceService } from './services/cadatro-senderitas-s
 export class CadastroSenderistasComponent implements OnInit {
 
   formGroup: FormGroup = this.cadatroSenderitasServiceService.firstStepForm;
+  myGroup = new FormGroup({
+    firstName: new FormControl()
+  });
+
 
   FormDadosLabels = {
     Rec: 'REC444',
@@ -41,7 +45,9 @@ export class CadastroSenderistasComponent implements OnInit {
     private router: Router,
     private serviceHomeAdm: HomeAdmService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+  }
 
   mercadoIntegrate() {
 
