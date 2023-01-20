@@ -14,7 +14,4 @@ export class CadatroSenderitasServiceService {
   constructor(readonly formBuilder: FormBuilder,) { }
 
   firstStepForm = this.formBuilder.group(FIRST_STEP_FORM);
-  secondStepForm = this.formBuilder.group(SECOND_STEP_FORM);
-  thirdStepForm = this.formBuilder.group(THIRD_STEP_FORM);
-  orcamentoForm = this.formBuilder.group(ORCAMENTO_FORM);
 }

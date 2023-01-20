@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
-  PoDynamicFormField,
   PoDynamicFormFieldChanged,
   PoDynamicFormValidation,
   PoNotificationService,
 } from '@po-ui/ng-components';
 import { HomeAdmService } from '../AreaAdm/home-adm/service/home-adm.service';
 import { CadatroSenderitasServiceService } from './services/cadatro-senderitas-service.service';
-import { FormGroupName } from '@angular/forms'
 
 @Component({
   selector: 'app-cadastro-senderistas',
@@ -18,7 +16,7 @@ import { FormGroupName } from '@angular/forms'
 })
 export class CadastroSenderistasComponent implements OnInit {
 
-  formGroup = this.cadatroSenderitasServiceService.firstStepForm;
+  formGroup: FormGroup = this.cadatroSenderitasServiceService.firstStepForm;
 
   FormDadosLabels = {
     Rec: 'REC444',
