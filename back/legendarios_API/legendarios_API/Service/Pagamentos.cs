@@ -67,9 +67,9 @@ namespace legendarios_API.Service
 
             var request = new PaymentCreateRequest
             {
-                TransactionAmount = dadosPagamento.transaction_amount,
-                Token = dadosPagamento.token,
-                PaymentMethodId = dadosPagamento.payment_method_id,
+                TransactionAmount = dadosPagamento.transaction_amount, // VALOR DA TRANSAÇÃO
+                Token = dadosPagamento.token,  //APARENTEMENTE PODE SER NULO NO PAGAMENTO
+                PaymentMethodId = dadosPagamento.payment_method_id,  //TIPO DE PAGAMENTO SE CARTÃO MASTER VISA OU PIX
                 Installments = dadosPagamento.installments,  //QUANTIDADE DE PARCELAS
                 Payer = new PaymentPayerRequest
                 {

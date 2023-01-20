@@ -35,11 +35,8 @@ import { PagesModule } from './pages/pages.module';
     PoTemplatesModule,
     MatTableModule,
     MatPaginatorModule,
-    ReactiveFormsModule,
     FormsModule,
     CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
     PagesModule,
     ReactiveFormsModule
   ],
