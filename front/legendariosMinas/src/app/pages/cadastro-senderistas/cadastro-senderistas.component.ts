@@ -9,6 +9,7 @@ import {
 } from '@po-ui/ng-components';
 import { HomeAdmService } from '../AreaAdm/home-adm/service/home-adm.service';
 import { CadatroSenderitasServiceService } from './services/cadatro-senderitas-service.service';
+import { FormGroupName } from '@angular/forms'
 
 @Component({
   selector: 'app-cadastro-senderistas',
@@ -16,6 +17,8 @@ import { CadatroSenderitasServiceService } from './services/cadatro-senderitas-s
   styleUrls: ['./cadastro-senderistas.component.css'],
 })
 export class CadastroSenderistasComponent implements OnInit {
+
+  formGroup = this.cadatroSenderitasServiceService.firstStepForm;
 
   FormDadosLabels = {
     Rec: 'REC444',
