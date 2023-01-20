@@ -9,9 +9,11 @@ import { FIRST_STEP_FORM, SECOND_STEP_FORM, THIRD_STEP_FORM } from '../constants
 })
 export class CadatroSenderitasServiceService {
   cadastrarNovoSenderista$ = new BehaviorSubject<boolean>(true);
-
-
-  constructor(readonly formBuilder: FormBuilder,) { }
-
   firstStepForm = this.formBuilder.group(FIRST_STEP_FORM);
+
+  constructor(readonly formBuilder: FormBuilder,) {
+    this.firstStepForm.patchValue({nomecompleto: "pablo augusto"});
+   }
+
+
 }

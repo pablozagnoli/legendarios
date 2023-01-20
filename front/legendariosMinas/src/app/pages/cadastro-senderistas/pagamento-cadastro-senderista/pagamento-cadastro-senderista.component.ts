@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagamento-cadastro-senderista.component.css']
 })
 export class PagamentoCadastroSenderistaComponent implements OnInit {
-  acultaCartoes: boolean = true;
+  acultarCartoes: boolean = true;
 
   constructor() { }
 

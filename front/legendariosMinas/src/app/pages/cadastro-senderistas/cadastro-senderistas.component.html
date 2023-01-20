@@ -1,199 +1,160 @@
 <app-descricao-evento-cadastro-senderista #descricaoEvento class="container"></app-descricao-evento-cadastro-senderista>
 
-<div [hidden]="descricaoEvento.Cadastrovisivel" class="container">
-  <form [formGroup]="myGroup">
+<div [hidden]="descricaoEvento.Cadastrovisivel"  class="container">
 
-    <div class="py-5 text-center">
-      <h2>{{this.FormDadosLabels.Titulo}}</h2>
-      <p class="lead">{{ this.FormDadosLabels.DataEvento }}</p>
-      <p class="lead">{{ this.FormDadosLabels.DescricaoDoEvento }}</p>
-    </div>
 
-    <div class="row g-6">
+  <div class="py-5 text-center">
+    <h2></h2>
+    <p class="lead"></p>
+    <p class="lead"></p>
+  </div>
 
-      <div class="col-md-12 col-lg-12">
-        <h4 class="mb-3">{{ this.FormDadosLabels.TituloDadosDoParticipante }}</h4>
+  <div class="row g-6">
 
-        <form class="needs-validation" novalidate>
-          <div class="row g-3">
+    <div class="col-md-12 col-lg-12">
+      <h4 class="mb-3"></h4>
 
-            <div class="col-sm-6">
-              <label for="nomecompleto" class="form-label">{{ this.FormDadosLabels.firstName }}</label>
-              <input type="text" class="form-control" id="nomecompleto" formControlName="nomecompleto" placeholder=""
-                value="" required>
+      <form [formGroup]="formGroup" class="needs-validation" >
+        <div class="row g-3">
+
+          <div class="col-sm-6">
+            <label for="nomecompleto" class="form-label"></label>
+            <input type="text" class="form-control" id="nomecompleto" formControlName="nomecompleto" placeholder=""
+              value="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <div class="col-6">
+            <label for="email" class="form-label"> <span class="text-muted">(Optional)</span></label>
+            <input type="email" class="form-control" formControlName="email" id="email" placeholder="you@example.com">
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <div class="col-3">
+            <label for="cpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="1234 Main St" required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <div class="col-3">
+            <label for="rg" class="form-label">RG</label>
+            <input type="text" class="form-control" id="rg" formControlName="rg" placeholder="1234 Main St" required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <div class="col-3">
+            <label for="dataespedicaorg" class="form-label">Data Expdição</label>
+            <input type="date" class="form-control" id="dataespedicaorg" formControlName="dataespedicaorg" required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <div class="col-3">
+            <label for="rgespedidopor" class="form-label">Expedido Por</label>
+            <input type="text" class="form-control" id="rgespedidopor" formArrayName="rgespedidopor" placeholder="SSP"
+              required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <div class="col-3">
+            <label for="datanascimento" class="form-label">Data Nascimento</label>
+            <input type="date" class="form-control" id="datanascimento" formControlName="datanascimento" required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <div class="col-3">
+            <label for="idade" class="form-label">Idade</label>
+            <input type="text" class="form-control" id="idade" formControlName="idade" placeholder="27 anos" required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <div class="col-3">
+            <label for="celular" class="form-label">Celular</label>
+            <input type="number" class="form-control" id="celular" formControlName="celular"
+              placeholder="31 99291 . . . " required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <div class="col-3">
+            <label for="nacionalidade" class="form-label">Nacionalidade</label>
+            <input type="text" class="form-control" id="nacionalidade" formControlName="nacionalidade"
+              placeholder="Brasileira" required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="row">
+
+            <div class="col-md-4">
+
+              <label for="address" class="form-label"></label>
+              <input type="text" class="form-control" id="address" formControlName="address"
+                placeholder="rua 5 condominio" required>
               <div class="invalid-feedback">
                 Obrigatório.
               </div>
             </div>
 
-            <div class="col-6">
-              <label for="email" class="form-label"> {{ this.FormDadosLabels.Email }} <span
-                  class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" formControlName="email" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
 
-            <div class="col-3">
-              <label for="cpf" class="form-label">CPF</label>
-              <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="1234 Main St"
-                required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <div class="col-3">
-              <label for="rg" class="form-label">RG</label>
-              <input type="text" class="form-control" id="rg" formControlName="rg" placeholder="1234 Main St" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <div class="col-3">
-              <label for="dataespedicaorg" class="form-label">Data Expdição</label>
-              <input type="date" class="form-control" id="dataespedicaorg" formControlName="dataespedicaorg" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <div class="col-3">
-              <label for="rgespedidopor" class="form-label">Expedido Por</label>
-              <input type="text" class="form-control" id="rgespedidopor" formArrayName="rgespedidopor" placeholder="SSP"
-                required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <div class="col-3">
-              <label for="datanascimento" class="form-label">Data Nascimento</label>
-              <input type="date" class="form-control" id="datanascimento" formControlName="datanascimento" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <div class="col-3">
-              <label for="idade" class="form-label">Idade</label>
-              <input type="text" class="form-control" id="idade" formControlName="idade" placeholder="27 anos" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <div class="col-3">
-              <label for="celular" class="form-label">Celular</label>
-              <input type="number" class="form-control" id="celular" formControlName="celular"
-                placeholder="31 99291 . . . " required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <div class="col-3">
-              <label for="nacionalidade" class="form-label">Nacionalidade</label>
-              <input type="text" class="form-control" id="nacionalidade" formControlName="nacionalidade"
-                placeholder="Brasileira" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <hr class="my-4">
-
-            <div class="row">
-
-              <div class="col-md-4">
-
-                <label for="address" class="form-label">{{ this.FormDadosLabels.Address}}</label>
-                <input type="text" class="form-control" id="address" formControlName="address"
-                  placeholder="rua 5 condominio" required>
-                <div class="invalid-feedback">
-                  Obrigatório.
-                </div>
-              </div>
-
-
-              <div class="col-md-4">
-                <label for="country" class="form-label">{{ this.FormDadosLabels.Country }}</label>
-                <select class="form-select" id="country" formControlName="country" required>
-                  <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                  <option>Brasil</option>
-                  <option>United States</option>
-                </select>
-                <div class="invalid-feedback">
-                  Obrigatório.
-                </div>
-              </div>
-
-              <div class="col-md-2">
-                <label for="state" class="form-label">Estado</label>
-                <select class="form-select" formControlName="state" id="state" required>
-                  <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                  <option>Minas Gerais</option>
-                  <option>São Paulo</option>
-                </select>
-                <div class="invalid-feedback">
-                  Obrigatório..
-                </div>
-              </div>
-
-              <div class="col-md-2">
-                <label for="cidade" class="form-label">Cidade</label>
-                <select class="form-select" id="cidade" formControlName="cidade" required>
-                  <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                  <option>Belo Horizonte</option>
-                  <option>Contagem</option>
-                </select>
-                <div class="invalid-feedback">
-                  Obrigatório.
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <label for="cep" class="form-label">CEP</label>
-                <input class="form-control" formControlName="cep" id="cep">
-                <div class="invalid-feedback">
-                  Obrigatório.
-                </div>
-              </div>
-
-            </div>
-
-            <hr class="my-4">
-
-            <div class="col-3">
-              <label for="profissao" class="form-label">Profissão</label>
-              <input type="text" class="form-control" id="profissao" formControlName="profissao"
-                placeholder="Engenheiro" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <div class="col-3">
-              <label for="religiao" class="form-label">Religião</label>
-              <input type="text" class="form-control" id="religiao" formControlName="religiao" placeholder="Cristao"
-                required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="civilstate" class="form-label">Estado civil</label>
-              <select class="form-select" id="civilstate" formControlName="civilstate" required>
-                <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                <option>Solteiro</option>
-                <option>Casado</option>
-                <option>Divorciado</option>
-                <option>União Estável</option>
-                <option>Viuvo</option>
+            <div class="col-md-4">
+              <label for="country" class="form-label"></label>
+              <select class="form-select" id="country" formControlName="country" required>
+                <option value=""></option>
+                <option>Brasil</option>
+                <option>United States</option>
               </select>
+              <div class="invalid-feedback">
+                Obrigatório.
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <label for="state" class="form-label">Estado</label>
+              <select class="form-select" formControlName="state" id="state" required>
+                <option value=""></option>
+                <option>Minas Gerais</option>
+                <option>São Paulo</option>
+              </select>
+              <div class="invalid-feedback">
+                Obrigatório..
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <label for="cidade" class="form-label">Cidade</label>
+              <select class="form-select" id="cidade" formControlName="cidade" required>
+                <option value=""></option>
+                <option>Belo Horizonte</option>
+                <option>Contagem</option>
+              </select>
+              <div class="invalid-feedback">
+                Obrigatório.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="cep" class="form-label">CEP</label>
+              <input class="form-control" formControlName="cep" id="cep">
               <div class="invalid-feedback">
                 Obrigatório.
               </div>
@@ -201,282 +162,318 @@
 
           </div>
 
-          <div class="row g-6">
+          <hr class="my-4">
 
-            <div class="col-md-2">
-              <label for="temfilhos" class="form-label">Tem Filhos</label>
-              <select class="form-select" id="temfilhos" formControlName="temfilhos" required>
-                <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                <option>Sim</option>
-                <option>Não</option>
-              </select>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-3">
+            <label for="profissao" class="form-label">Profissão</label>
+            <input type="text" class="form-control" id="profissao" formControlName="profissao" placeholder="Engenheiro"
+              required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-2">
-              <label for="usamedicacao" class="form-label">Usa Medicação</label>
-              <select class="form-select" id="usamedicacao" formControlName="usamedicacao" required>
-                <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                <option>Sim</option>
-                <option>Não</option>
-              </select>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-3">
+            <label for="religiao" class="form-label">Religião</label>
+            <input type="text" class="form-control" id="religiao" formControlName="religiao" placeholder="Cristao"
+              required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-4">
-              <label for="igreja" class="form-label">Igreja</label>
-              <input type="text" class="form-control" id="igreja" formControlName="igreja" placeholder="Central"
-                required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="civilstate" class="form-label">Estado civil</label>
+            <select class="form-select" id="civilstate" formControlName="civilstate" required>
+              <option value=""></option>
+              <option>Solteiro</option>
+              <option>Casado</option>
+              <option>Divorciado</option>
+              <option>União Estável</option>
+              <option>Viuvo</option>
+            </select>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-4">
-              <label for="qualredepertence" class="form-label">Qual Rede Pertence</label>
-              <input type="text" class="form-control" id="qualredepertence" formControlName="qualredepertence"
-                placeholder="ALT" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+        </div>
+
+        <div class="row g-6">
+
+          <div class="col-md-2">
+            <label for="temfilhos" class="form-label">Tem Filhos</label>
+            <select class="form-select" id="temfilhos" formControlName="temfilhos" required>
+              <option value=""></option>
+              <option>Sim</option>
+              <option>Não</option>
+            </select>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="numdacamisa" class="form-label">Num Da Camisa</label>
-              <input type="text" class="form-control" id="numdacamisa" formControlName="numdacamisa"
-                placeholder="P ... M .. G" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-2">
+            <label for="usamedicacao" class="form-label">Usa Medicação</label>
+            <select class="form-select" id="usamedicacao" formControlName="usamedicacao" required>
+              <option value=""></option>
+              <option>Sim</option>
+              <option>Não</option>
+            </select>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="frequentacelula" class="form-label">Frequento Célula</label>
-              <select class="form-select" id="frequentacelula" formControlName="frequentacelula" required>
-                <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                <option>Sim</option>
-                <option>Não</option>
-              </select>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-4">
+            <label for="igreja" class="form-label">Igreja</label>
+            <input type="text" class="form-control" id="igreja" formControlName="igreja" placeholder="Central" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="liderdecelula" class="form-label">Lider de célula</label>
-              <select class="form-select" id="liderdecelula" formControlName="liderdecelula" required>
-                <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                <option>Sim</option>
-                <option>Não</option>
-              </select>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-4">
+            <label for="qualredepertence" class="form-label">Qual Rede Pertence</label>
+            <input type="text" class="form-control" id="qualredepertence" formControlName="qualredepertence"
+              placeholder="ALT" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <hr class="my-4">
-
-            <div class="col-md-3">
-              <label for="nomecontatoemergencia1" class="form-label">Nome Contato Emergência 1</label>
-              <input type="text" class="form-control" id="nomecontatoemergencia1"
-                formControlName="nomecontatoemergencia1" placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="numdacamisa" class="form-label">Num Da Camisa</label>
+            <input type="text" class="form-control" id="numdacamisa" formControlName="numdacamisa"
+              placeholder="P ... M .. G" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="numerocontatoemergencia1" class="form-label">Num Contato Emergência 1</label>
-              <input type="text" class="form-control" id="numerocontatoemergencia1"
-                formControlName="numerocontatoemergencia1" placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="frequentacelula" class="form-label">Frequento Célula</label>
+            <select class="form-select" id="frequentacelula" formControlName="frequentacelula" required>
+              <option value=""></option>
+              <option>Sim</option>
+              <option>Não</option>
+            </select>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="nomecontatoemergencia2" class="form-label">Nome Contato Emergência 2</label>
-              <input type="text" class="form-control" id="nomecontatoemergencia2"
-                formControlName="nomecontatoemergencia2" placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="liderdecelula" class="form-label">Lider de célula</label>
+            <select class="form-select" id="liderdecelula" formControlName="liderdecelula" required>
+              <option value=""></option>
+              <option>Sim</option>
+              <option>Não</option>
+            </select>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="numerocontatoemergencia1" class="form-label">Num Contato Emergência 2</label>
-              <input type="text" class="form-control" id="numerocontatoemergencia1"
-                formControlName="numerocontatoemergencia1" placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <hr class="my-4">
+
+          <div class="col-md-3">
+            <label for="nomecontatoemergencia1" class="form-label">Nome Contato Emergência 1</label>
+            <input type="text" class="form-control" id="nomecontatoemergencia1" formControlName="nomecontatoemergencia1"
+              placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="medicofamilia" class="form-label">Nome Médico Familiar</label>
-              <input type="text" class="form-control" id="medicofamilia" formControlName="medicofamilia" placeholder=""
-                required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="numerocontatoemergencia1" class="form-label">Num Contato Emergência 1</label>
+            <input type="text" class="form-control" id="numerocontatoemergencia1"
+              formControlName="numerocontatoemergencia1" placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="telmedicofamilia" class="form-label">Tel Médico Familiar</label>
-              <input type="text" class="form-control" id="telmedicofamilia" formControlName="telmedicofamilia"
-                placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="nomecontatoemergencia2" class="form-label">Nome Contato Emergência 2</label>
+            <input type="text" class="form-control" id="nomecontatoemergencia2" formControlName="nomecontatoemergencia2"
+              placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-2">
-              <label for="conveniomedico" class="form-label">Convenio Médico</label>
-              <select class="form-select" id="conveniomedico" formControlName="conveniomedico" required>
-                <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                <option>Sim</option>
-                <option>Não</option>
-              </select>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="numerocontatoemergencia1" class="form-label">Num Contato Emergência 2</label>
+            <input type="text" class="form-control" id="numerocontatoemergencia1"
+              formControlName="numerocontatoemergencia1" placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-
-            <div class="col-md-3">
-              <label for="nomeconveniomedico" class="form-label">Nome Convenio Médico</label>
-              <input type="text" class="form-control" id="nomeconveniomedico" formControlName="nomeconveniomedico"
-                placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="medicofamilia" class="form-label">Nome Médico Familiar</label>
+            <input type="text" class="form-control" id="medicofamilia" formControlName="medicofamilia" placeholder=""
+              required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="possuisegurodevida" class="form-label">Possui Seguro de Vida</label>
-              <select class="form-select" id="possuisegurodevida" formControlName="possuisegurodevida" required>
-                <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                <option>Sim</option>
-                <option>Não</option>
-              </select>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="telmedicofamilia" class="form-label">Tel Médico Familiar</label>
+            <input type="text" class="form-control" id="telmedicofamilia" formControlName="telmedicofamilia"
+              placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="empresasegurodevida" class="form-label">Empresa Seguro Vida</label>
-              <input type="text" class="form-control" id="empresasegurodevida" formControlName="empresasegurodevida"
-                placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-2">
+            <label for="conveniomedico" class="form-label">Convenio Médico</label>
+            <select class="form-select" id="conveniomedico" formControlName="conveniomedico" required>
+              <option value=""></option>
+              <option>Sim</option>
+              <option>Não</option>
+            </select>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="numeroopolicesegurodevida" class="form-label">Num Apolice Seg Vida</label>
-              <input type="text" class="form-control" id="numeroopolicesegurodevida"
-                formControlName="numeroopolicesegurodevida" placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+
+          <div class="col-md-3">
+            <label for="nomeconveniomedico" class="form-label">Nome Convenio Médico</label>
+            <input type="text" class="form-control" id="nomeconveniomedico" formControlName="nomeconveniomedico"
+              placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-3">
-              <label for="tiposanguineo" class="form-label">Tipo Sanguineo</label>
-              <select class="form-select" id="tiposanguineo" formControlName="tiposanguineo" required>
-                <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                <option>O+</option>
-                <option>O-</option>
-                <option>A+</option>
-                <option>A-</option>
-                <option>B+</option>
-                <option>B-</option>
-                <option>AB+</option>
-                <option>AB-</option>
-              </select>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="possuisegurodevida" class="form-label">Possui Seguro de Vida</label>
+            <select class="form-select" id="possuisegurodevida" formControlName="possuisegurodevida" required>
+              <option value=""></option>
+              <option>Sim</option>
+              <option>Não</option>
+            </select>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-12">
-              <label for="possuiasdoencasabaixo" class="form-label">Possui as doenças abaixo</label>
-              <select class="form-select" id="possuiasdoencasabaixo" formControlName="possuiasdoencasabaixo" required>
-                <option value="">{{ this.FormDadosLabels.Selecione }}</option>
-                <option>Alergias</option>
-                <option>Diabetes</option>
-                <option>Convulções</option>
-                <option>Episodeos de demaio</option>
-                <option>Problemas cardiacos</option>
-                <option>Transtornos alimentares ou problemas estomacais</option>
-                <option>Problemas respiratorios (ASMA, ENFISEMA, DPOC)</option>
-                <option>Xuidados psiquiatricos</option>
-                <option>Toma medicamentos para depressão ou problemas de comportamento</option>
-                <option>Transtorno musculo esquelético (ATROSE, LESÕES NA COLUNA, ETC)</option>
-                <option>Ja fez alguma cirugia</option>
-                <option>Possui problema grave</option>
-                <option>Nenhum problema citado a cima ou nenhum outro problema</option>
-              </select>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="empresasegurodevida" class="form-label">Empresa Seguro Vida</label>
+            <input type="text" class="form-control" id="empresasegurodevida" formControlName="empresasegurodevida"
+              placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-12">
-              <label for="semarcoupossuiasdoencasabaixo" class="form-label">Se você marcou alguma das opções na pergunta
-                anterior, explique em
-                detalhes qual é a doença e/ou condição:</label>
-              <input type="text" class="form-control" id="semarcoupossuiasdoencasabaixo"
-                formControlName="semarcoupossuiasdoencasabaixo" placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="numeroopolicesegurodevida" class="form-label">Num Apolice Seg Vida</label>
+            <input type="text" class="form-control" id="numeroopolicesegurodevida"
+              formControlName="numeroopolicesegurodevida" placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <div class="col-md-12">
-              <label for="temoutroproblemasaude" class="form-label">Tem outro problema de saúde? Qual</label>
-              <input type="text" class="form-control" id="temoutroproblemasaude" formControlName="temoutroproblemasaude"
-                placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-3">
+            <label for="tiposanguineo" class="form-label">Tipo Sanguineo</label>
+            <select class="form-select" id="tiposanguineo" formControlName="tiposanguineo" required>
+              <option value=""></option>
+              <option>O+</option>
+              <option>O-</option>
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+            </select>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-
-            <div class="col-md-12">
-              <label for="usamedicamentoqual" class="form-label">Usa médicamento? Qual</label>
-              <input type="text" class="form-control" id="usamedicamentoqual" formControlName="usamedicamentoqual"
-                placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-12">
+            <label for="possuiasdoencasabaixo" class="form-label">Possui as doenças abaixo</label>
+            <select class="form-select" id="possuiasdoencasabaixo" formControlName="possuiasdoencasabaixo" required>
+              <option value=""></option>
+              <option>Alergias</option>
+              <option>Diabetes</option>
+              <option>Convulções</option>
+              <option>Episodeos de demaio</option>
+              <option>Problemas cardiacos</option>
+              <option>Transtornos alimentares ou problemas estomacais</option>
+              <option>Problemas respiratorios (ASMA, ENFISEMA, DPOC)</option>
+              <option>Xuidados psiquiatricos</option>
+              <option>Toma medicamentos para depressão ou problemas de comportamento</option>
+              <option>Transtorno musculo esquelético (ATROSE, LESÕES NA COLUNA, ETC)</option>
+              <option>Ja fez alguma cirugia</option>
+              <option>Possui problema grave</option>
+              <option>Nenhum problema citado a cima ou nenhum outro problema</option>
+            </select>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-
-            <div class="col-md-12">
-              <label for="porrazoesmedicasdietaespecial" class="form-label">Por RAZÕES MÉDICAS, requer alguma dieta
-                especial, (descreva
-                detalhadamente)</label>
-              <input type="text" class="form-control" id="porrazoesmedicasdietaespecial"
-                formControlName="porrazoesmedicasdietaespecial" placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+          <div class="col-md-12">
+            <label for="semarcoupossuiasdoencasabaixo" class="form-label">Se você marcou alguma das opções na pergunta
+              anterior, explique em
+              detalhes qual é a doença e/ou condição:</label>
+            <input type="text" class="form-control" id="semarcoupossuiasdoencasabaixo"
+              formControlName="semarcoupossuiasdoencasabaixo" placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <hr class="my-4">
+          <div class="col-md-12">
+            <label for="temoutroproblemasaude" class="form-label">Tem outro problema de saúde? Qual</label>
+            <input type="text" class="form-control" id="temoutroproblemasaude" formControlName="temoutroproblemasaude"
+              placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
 
-            <div class="col-md-12">
-              <label for="termoizencaorespmedica" class="form-label">Termo de Participação, Isenção de Responsabilidade
-                Médica ,
-                Renúncia, Liberação de Responsabilidades e Outras Avenças*</label>
-              <textarea type="text" class="form-control" id="termoizencaorespmedica"
-                formControlName="termoizencaorespmedica" readonly>
+
+          <div class="col-md-12">
+            <label for="usamedicamentoqual" class="form-label">Usa médicamento? Qual</label>
+            <input type="text" class="form-control" id="usamedicamentoqual" formControlName="usamedicamentoqual"
+              placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+
+          <div class="col-md-12">
+            <label for="porrazoesmedicasdietaespecial" class="form-label">Por RAZÕES MÉDICAS, requer alguma dieta
+              especial, (descreva
+              detalhadamente)</label>
+            <input type="text" class="form-control" id="porrazoesmedicasdietaespecial"
+              formControlName="porrazoesmedicasdietaespecial" placeholder="" required>
+            <div class="invalid-feedback">
+              Obrigatório.
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="col-md-12">
+            <label for="termoizencaorespmedica" class="form-label">Termo de Participação, Isenção de Responsabilidade
+              Médica ,
+              Renúncia, Liberação de Responsabilidades e Outras Avenças*</label>
+            <textarea type="text" class="form-control" id="termoizencaorespmedica"
+              formControlName="termoizencaorespmedica" readonly>
 
                   I - ACEITAÇÃO PARA PARTICIPAR
 Declaro e reconheço que estou totalmente ciente sobre os riscos e perigos inerentes às atividades a serem realizadas no evento doravante denominado REC (Reto Extremo de Caráter) organizado por "Legendários" a ser realizado entre os dias 04/03 a 07/03 de 2021 em Minas Gerias.
@@ -544,21 +541,21 @@ V.- ACEITAÇÃO:
 Belo Horizonte – MG, junho de 2021.
 
                 </textarea>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <label for="termoizencaorespmedicaradio">Aceito os termos a clima</label>
-            <input id="termoizencaorespmedicaradio" formControlName="termoizencaorespmedicaradio" class="col-md-12"
-              type="checkbox" required>
+          <label for="termoizencaorespmedicaradio">Aceito os termos a clima</label>
+          <input id="termoizencaorespmedicaradio" formControlName="termoizencaorespmedicaradio" class="col-md-12"
+            type="checkbox" required>
 
-            <hr class="my-4">
+          <hr class="my-4">
 
-            <div class="col-md-12">
-              <label for="politicacancelamento" class="form-label">Politica de Cancelamento e Reembolso*</label>
-              <textarea type="text" class="form-control" id="politicacancelamento"
-                formControlName="politicacancelamento" readonly required>
+          <div class="col-md-12">
+            <label for="politicacancelamento" class="form-label">Politica de Cancelamento e Reembolso*</label>
+            <textarea type="text" class="form-control" id="politicacancelamento" formControlName="politicacancelamento"
+              readonly required>
 
                   LEIA ATENTAMENTE
 
@@ -567,42 +564,42 @@ Belo Horizonte – MG, junho de 2021.
                   Até 8 dias antes do evento (23/06) - 40% de reembolso ou alteração para o próximo REC. (sem troca de titularidade).
                   A partir de 7 dias antes do evento (22/06), não realizamos reembolso ou troca de titularidade, podemos alterar a participação para o próximo REC em casos de impossibilidade de participação por saúde, informados com antecedência.
                 </textarea>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
+          </div>
 
-            <label for="politicacancelamentoradio">Aceito os termos a clima</label>
-            <input id="politicacancelamentoradio" formControlName="politicacancelamentoradio" class="col-md-12"
-              type="checkbox" required>
+          <label for="politicacancelamentoradio">Aceito os termos a clima</label>
+          <input id="politicacancelamentoradio" formControlName="politicacancelamentoradio" class="col-md-12"
+            type="checkbox" required>
 
-            <hr class="my-4">
+          <hr class="my-4">
 
-            <div class="col-md-12">
-              <label for="declaracaoinfoverdadeiras" class="form-label">Declaração *</label>
-              <textarea type="text" class="form-control" id="declaracaoinfoverdadeiras"
-                formControlName="declaracaoinfoverdadeiras" readonly required>
+          <div class="col-md-12">
+            <label for="declaracaoinfoverdadeiras" class="form-label">Declaração *</label>
+            <textarea type="text" class="form-control" id="declaracaoinfoverdadeiras"
+              formControlName="declaracaoinfoverdadeiras" readonly required>
 
                   Sob minha total responsabilidade, declaro que todas as informações são verdadeiras, não omiti nenhuma informação sobre meu estado de saúde.
 
                 </textarea>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
+            <div class="invalid-feedback">
+              Obrigatório.
             </div>
-
-            <label for="declaracaoinfoverdadeirasradio">Aceito os termos a clima</label>
-            <input id="declaracaoinfoverdadeirasradio" formControlName="declaracaoinfoverdadeirasradio"
-              class="col-md-12" type="checkbox" required>
-
-            <hr class="my-4">
-
           </div>
 
-        </form>
-      </div>
+          <label for="declaracaoinfoverdadeirasradio">Aceito os termos a clima</label>
+          <input id="declaracaoinfoverdadeirasradio" formControlName="declaracaoinfoverdadeirasradio" class="col-md-12"
+            type="checkbox" required>
+
+          <hr class="my-4">
+
+        </div>
+
+      </form>
     </div>
-  </form>
+  </div>
+
 
   <div class="row">
 

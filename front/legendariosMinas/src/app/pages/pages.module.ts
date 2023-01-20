@@ -50,12 +50,6 @@ import { DescricaoEventoCadastroSenderistaComponent } from './cadastro-senderist
         MatTableModule,
         MatPaginatorModule,
         FormsModule,
-        CommonModule,
-        MatStepperModule,
-        OverlayModule,
-        PortalModule,
-        ScrollingModule,
-        DialogModule,
         ReactiveFormsModule
     ]
 })
