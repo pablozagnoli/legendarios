@@ -78,22 +78,15 @@ export class PagamentoCadastroSenderistaComponent implements OnInit {
     let paramCard = {
       card_number: this.formGroup.get("numcartao")?.value,
       cardholder: {
-        name: "PABLO A S ZAGNOLI",
+        name: this.formGroup.get("nometitularcartao")?.value,
         identification: {
           type: "CPF",
-          number: "12124366602"
+          number: this.formGroup.get("doctitularcartao")?.value
         }
       },
-      identification: {
-        type: "CPF",
-        number: "12124366602" },
-      number: "12124366602",
-      type: "CPF",
-      name: "PABLO A S ZAGNOLI",
-      session_id: "",
-      expiration_month: "11",
-      expiration_year: "2028",
-      security_code: "981"
+      expiration_month: this.formGroup.get("mesvencimentocartao")?.value,
+      expiration_year: "20" + this.formGroup.get("anovencimentocartao")?.value,
+      security_code: this.formGroup.get("codsegurancacartao")?.value
     }
 
 
