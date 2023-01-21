@@ -1,4 +1,4 @@
-<div class="row">
+<form [formGroup]="formGroup" class="row">
 
   <div class="col-md-12 classeDoContainerMercadoPago">
 
@@ -7,8 +7,7 @@
       <h1 class="svelte-1mym5f9 mp-checkout-bricks__padding-36kZW0">Meios de Pagamento</h1>
 
       <div class="mp-checkout-bricks__payment-options-1mRS7a svelte-15wgdld">
-        <div class="mp-checkout-bricks__selector-n5fsj4 svelte-14j1g8g"
-          (click)="ExibeCartoes()">
+        <div class="mp-checkout-bricks__selector-n5fsj4 svelte-14j1g8g" (click)="ExibeCartoes()">
 
           <input class="mp-checkout-bricks__radio-YTyCuK svelte-14j1g8g" type="radio">
 
@@ -35,20 +34,82 @@
 
         </div>
 
-        <div id="acultaCartoes" class="row">
+        <div id="acultaCartoes" class="container">
 
-          <div class="col-md-4">
-            <label for="numcartao">Cartao</label>
-            <input id="numcartao" class="form-control">
+
+          <div class="row">
+
+            <div class="col-md-12">
+              <label for="numcartao">Número do cartão</label>
+              <input id="numcartao" formControlName="numcartao" placeholder="1234 5678 9101 1213" class="form-control">
+            </div>
           </div>
 
-          <div class="col-md-4">
-            <label for="email">E-mail</label>
-            <input id="email" class="form-control">
+          <div class="row">
+
+            <div class="col-md-6">
+
+              <label for="mesvencimentocartao">Mês do vencimento</label>
+              <input id="mesvencimentocartao" formControlName="mesvencimentocartao" type="number" maxlength="2" placeholder="05" class="form-control">
+
+              <label for="anovencimentocartao">Dia do vencimento</label>
+              <input id="anovencimentocartao" formControlName="anovencimentocartao" type="number" maxlength="2"  placeholder="23" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+              <label for="codsegurancacartao">Código de segurança</label>
+              <input id="codsegurancacartao" formControlName="codsegurancacartao" maxlength="3" type="number" placeholder="123" class="form-control">
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-12">
+              <label for="nometitularcartao">Nome do titular como aparece no cartão</label>
+              <input id="nometitularcartao" formControlName="nometitularcartao" placeholder="Augusto Zagnoli" class="form-control">
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-12">
+              <label for="doctitularcartao">Documento do titular do cartão</label>
+              <input id="doctitularcartao" formControlName="doctitularcartao" m placeholder="mm/aa" class="form-control">
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <label style="font-weight: 900;" class="form-label">Preencha seus dados</label>
+
+            <div class="col-md-12">
+              <label for="nomesenderista">Nome Completo</label>
+              <input id="nomesenderista" formControlName="nomesenderista" placeholder="mm/aa" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+              <label for="emailsenderista">E-mail</label>
+              <input id="emailsenderista" formControlName="emailsenderista" placeholder="mm/aa" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+              <label for="cpfsenderista">CPF</label>
+              <input id="cpfsenderista" formControlName="cpfsenderista" placeholder="mm/aa" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+              <label for="datanascimentosenderista">Data de Nascimento</label>
+              <input id="email" type="date" placeholder="mm/aa" class="form-control">
+            </div>
+
           </div>
 
         </div>
 
+        <div style="margin-bottom: 10px;"></div>
 
 
         <div (click)="ExibePix()" class="mp-checkout-bricks__selector-n5fsj4 svelte-14j1g8g">
@@ -72,30 +133,38 @@
           </div>
         </div>
 
+        <div class="container">
 
-        <div id="acultaPix" class="row">
+          <div id="acultaPix" class="row">
 
 
-          <div class="col-md-4">
-            <label for="email">E-mail</label>
-            <input id="email" class="form-control">
+            <div class="col-md-12">
+              <label for="email">E-mail</label>
+              <input id="email" class="form-control">
+            </div>
+
           </div>
 
         </div>
+        <div style="margin-bottom: 10px;"></div>
+
 
       </div>
 
-      <div class="row-UZRYUT svelte-rurvvw" style="position: relative;">
-        <div class="button-container-gZzvB_ svelte-rurvvw"><button type="submit" class="svelte-1a8kh4a"><svg role="img"
-              viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="svelte-e3a2ae" width=" 16px"
-              height=" 16px">
+      <div class="row-UZRYUT svelte-rurvvw">
+        <div  class="button-container-gZzvB_ svelte-rurvvw">
+          <button (click)="enviarPagamento()" type="submit" class="svelte-1a8kh4a"><svg role="img" viewBox="0 0 12 18" fill="none"
+              xmlns="http://www.w3.org/2000/svg" class="svelte-e3a2ae" width=" 16px" height=" 16px">
               <path
                 d="M7.19464 11.4C7.19464 12.06 6.65962 12.595 5.99964 12.595C5.33966 12.595 4.80464 12.06 4.80464 11.4C4.80464 10.74 5.33966 10.205 5.99964 10.205C6.65962 10.205 7.19464 10.74 7.19464 11.4Z">
               </path>
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M11.9671 6.57023H10.1951V4.19546C10.1951 1.87837 8.31673 0 5.99964 0C3.68255 0 1.80418 1.87837 1.80418 4.19546V6.57023H0.0322266V14.99C0.0322266 16.6469 1.37537 17.99 3.03223 17.99H8.96706C10.6239 17.99 11.9671 16.6469 11.9671 14.99V6.57023ZM8.9951 4.19546V6.57023H3.00418V4.19546C3.00418 2.54111 4.3453 1.2 5.99964 1.2C7.65399 1.2 8.9951 2.54111 8.9951 4.19546ZM1.23223 14.99V7.77023H10.7671V14.99C10.7671 15.9841 9.96117 16.79 8.96706 16.79H3.03223C2.03811 16.79 1.23223 15.9841 1.23223 14.99Z">
               </path>
-            </svg> <span class="svelte-1a8kh4a">Pagar</span></button></div><iframe
+            </svg> <span class="svelte-1a8kh4a">Pagar</span>
+          </button>
+        </div>
+        <iframe
           style="display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; border: 0; opacity: 0; pointer-events: none; z-index: -1;"
           aria-hidden="true" tabindex="-1" src="about:blank"></iframe>
 
@@ -103,4 +172,4 @@
 
     </div>
   </div>
-</div>
+</form>

@@ -63,7 +63,7 @@ namespace legendarios_API.Service
 
         public static async Task<Payment> CriarPagamento(DadosPagamentoDTO dadosPagamento)
         {
-            MercadoPagoConfig.AccessToken = "TEST-567620616417230-011715-47c8c45fa26caead6f15578546ddf02f-335241271";
+            MercadoPagoConfig.AccessToken = "APP_USR-567620616417230-011715-ba6557ff016e169897b186c8503bfcf9-335241271";
 
             var request = new PaymentCreateRequest
             {

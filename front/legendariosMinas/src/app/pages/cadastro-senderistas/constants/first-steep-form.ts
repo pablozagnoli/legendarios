@@ -137,3 +137,16 @@ export const THIRD_STEP_FORM = {
     },
   ],
 };
+
+export const PAGAMENTO_FORM = {
+  numcartao: ["", [Validators.required]],
+  anovencimentocartao: ["", [Validators.required]],
+  mesvencimentocartao: ["", [Validators.required]],
+  codsegurancacartao: ["", [Validators.required]],
+  nometitularcartao: ["", [Validators.required]],
+  doctitularcartao: ["", [Validators.required]],
+  nomesenderista: ["", [Validators.required]],
+  emailsenderista: ["", [Validators.required]],
+  cpfsenderista: ["", [Validators.required]],
+  datanascimentosenderista: ["", [Validators.required]],
+}

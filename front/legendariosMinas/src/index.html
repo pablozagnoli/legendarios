@@ -13,8 +13,8 @@
 
 <body>
 
-  <!-- <script type="text/javascript">
-    const mp = new MercadoPago('TEST-f6ab8d6f-3a19-4e6a-91cf-7e9fce3b67b4');
+  <script type="text/javascript">
+    const mp = new MercadoPago('APP_USR-185bfd07-2552-4ecd-990c-0abbac069d15');
 
     const bricksBuilder = mp.bricks();
 
@@ -81,7 +81,7 @@
         while (contator < 30) {
           window.paymentBrickController = await bricksBuilder.create(
             'payment',
-            'containerDePagamento',
+            'containerpagamento',
             settings
           );
           contator++;
@@ -103,7 +103,7 @@
       }
     }
 
-  </script> -->
+  </script>
 
   <app-root></app-root>
 </body>
