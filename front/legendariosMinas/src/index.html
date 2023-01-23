@@ -39,74 +39,32 @@
             */
           },
           onSubmit: ({ selectedPaymentMethod, formData }) => {
+
+            sessionStorage.setItem("formData",JSON.stringify(formData))
+            let textfor = document.getElementById("acioneeventodeclickpagamento");
+            textfor.click();
             // callback chamado ao clicar no botão de submissão dos dados
-            // "https://localhost:5001/pagamentos/criar-pagameto"
-            // "http://173.224.117.181:40/pagamentos/criar-pagameto"
-            euEstou(formData)
             return new Promise((resolve, reject) => {
-              fetch("https://localhost:5001/pagamentos/criar-pagameto", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData)
-              })
-                .then((response) => {
 
-                  resolve();
-
-                })
-                .catch((error) => {
-                  // lidar com a resposta de erro ao tentar criar o pagamento
-                  reject();
-                })
             });
           },
           onError: (error) => {
             // callback chamado para todos os casos de erro do Brick
-            console.error(error + "OLA!");
+            console.error(error);
           },
         },
       };
-
-
-
-      try {
-        window.paymentBrickController = await bricksBuilder.create(
-          'payment',
-          'containerDePagamento',
-          settings
-        );
-      } catch (error) {
-        let contator = 1;
-        while (contator < 30) {
-          window.paymentBrickController = await bricksBuilder.create(
-            'payment',
-            'containerpagamento',
-            settings
-          );
-          contator++;
-          console.log(contator)
-        }
-      }
+      window.paymentBrickController = await bricksBuilder.create(
+        'payment',
+        'containerpagamento',
+        settings
+      );
     };
-
-    try {
-      setTimeout(6000);
-      renderPaymentBrick(bricksBuilder);
-    } catch (error) {
-      let contator = 1;
-      while (contator < 30) {
-        setTimeout(6000);
-        renderPaymentBrick(bricksBuilder);
-        contator++;
-        console.log(contator)
-      }
-    }
+    renderPaymentBrick(bricksBuilder);
 
   </script>
 
-  <app-root #approot1 ></app-root>
+  <app-root></app-root>
 </body>
 
 </html>

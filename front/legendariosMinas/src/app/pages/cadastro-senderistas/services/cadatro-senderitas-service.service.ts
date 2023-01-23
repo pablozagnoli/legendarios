@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -22,7 +22,12 @@ export class CadatroSenderitasServiceService {
   }
 
   PostPagamento(parans: any): Observable<any> {
-    return this.httpcliente.get<any>(`${this.BASEURL}pagamentos/criar-pagameto`, parans);
+
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+
+    return this.httpcliente.post<any>(`${this.BASEURL}pagamentos/criar-pagameto`, parans, httpOptions);
   }
 
   GetTokenCard(parans: any): Observable<any> {
