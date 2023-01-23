@@ -9,7 +9,7 @@ import { PoMenuItem } from '@po-ui/ng-components';
 })
 
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
   exibRodape = true;
 
@@ -25,6 +25,10 @@ export class AppComponent implements OnInit{
 
   private onClick() {
 
+  }
+
+  euEstou(conteudo: any) {
+    console.log(conteudo)
   }
 
 }
