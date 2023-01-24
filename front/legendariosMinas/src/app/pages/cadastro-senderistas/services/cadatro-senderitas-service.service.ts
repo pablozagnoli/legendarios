@@ -10,7 +10,7 @@ import { FIRST_STEP_FORM, PAGAMENTO_FORM, SECOND_STEP_FORM, THIRD_STEP_FORM } fr
   providedIn: 'root'
 })
 export class CadatroSenderitasServiceService {
-  private BASEURL = `${environment.baseURL}`;
+  private BASEURL = `${environment.baseURL}`+ "pagamentos/";
   cadastrarNovoSenderista$ = new BehaviorSubject<boolean>(true);
   firstStepForm = this.formBuilder.group(FIRST_STEP_FORM);
   pagamentoForm = this.formBuilder.group(PAGAMENTO_FORM);
@@ -27,7 +27,7 @@ export class CadatroSenderitasServiceService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
 
-    return this.httpcliente.post<any>(`${this.BASEURL}pagamentos/criar-pagameto`, parans, httpOptions);
+    return this.httpcliente.post<any>(`${this.BASEURL}criar-pagameto`, parans, httpOptions);
   }
 
   GetTokenCard(parans: any): Observable<any> {

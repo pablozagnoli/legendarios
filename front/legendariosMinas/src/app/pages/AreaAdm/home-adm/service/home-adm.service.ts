@@ -8,7 +8,7 @@ import { legendarios } from '../Model/legendariosModel';
   providedIn: 'root'
 })
 export class HomeAdmService {
-private BASEURL = `${environment.baseURL}`;
+private BASEURL = `${environment.baseURL}`+ "legendarios/";
 public numLegendario: string | undefined;
 
   constructor(private httpcliente: HttpClient) { }

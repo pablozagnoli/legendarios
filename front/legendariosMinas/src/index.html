@@ -13,6 +13,8 @@
 
 <body>
 
+  <app-root></app-root>
+
   <script type="text/javascript">
     const mp = new MercadoPago('APP_USR-185bfd07-2552-4ecd-990c-0abbac069d15');
 
@@ -40,7 +42,7 @@
           },
           onSubmit: ({ selectedPaymentMethod, formData }) => {
 
-            sessionStorage.setItem("formData",JSON.stringify(formData))
+            sessionStorage.setItem("formData", JSON.stringify(formData))
             let textfor = document.getElementById("acioneeventodeclickpagamento");
             textfor.click();
             // callback chamado ao clicar no botão de submissão dos dados
@@ -64,7 +66,6 @@
 
   </script>
 
-  <app-root></app-root>
 </body>
 
 </html>

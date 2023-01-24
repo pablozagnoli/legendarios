@@ -2,7 +2,7 @@
 {
     public class DadosPagamentoDTO
     {
-        public int installments { get; set; }
+        public int? installments { get; set; }
         public string issuer_id { get; set; }
         public PayerDTO payer { get; set; }
         public string payment_method_id { get; set; }
