@@ -4,6 +4,7 @@ import { EditarLegendarioComponent } from './pages/AreaAdm/home-adm/editar-legen
 import { HomeAdmComponent } from './pages/AreaAdm/home-adm/home-adm.component';
 import { LoginAdmComponent } from './pages/AreaAdm/login-adm/login-adm.component';
 import { CadastroSenderistasComponent } from './pages/cadastro-senderistas/cadastro-senderistas.component';
+import { StatusPagamentoComponent } from './pages/cadastro-senderistas/pagamento-cadastro-senderista/status-pagamento/status-pagamento.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'editar-legendario',
     component: EditarLegendarioComponent
+  }
+  ,
+  {
+    path: 'status-pagamento',
+    component: StatusPagamentoComponent
   }
 ];
 

@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CadatroSenderitasServiceService } from '../services/cadatro-senderitas-service.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class PagamentoCadastroSenderistaComponent implements OnInit, OnChanges {
 
   textform = new FormControl();
 
-  constructor(readonly cadatroSenderitasServiceService: CadatroSenderitasServiceService,) { }
+  constructor(readonly cadatroSenderitasServiceService: CadatroSenderitasServiceService,
+    private router: Router) { }
 
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -40,6 +42,8 @@ export class PagamentoCadastroSenderistaComponent implements OnInit, OnChanges {
     this.cadatroSenderitasServiceService.PostPagamento(param).subscribe({
       next: (response: any) => {
 
+        sessionStorage.setItem("numPag", response.id)
+        this.navegarparastatuspagamento(response.id)
       },
       error: (error: any) => {
 
@@ -47,6 +51,18 @@ export class PagamentoCadastroSenderistaComponent implements OnInit, OnChanges {
     })
   }
 
+  euaqui() {
+    document.getElementById("testando")?.click();
 
+  }
+
+  navegarparastatuspagamento(numPag: string) {
+    sessionStorage.setItem("recarregarstatuspagamento", "1");
+    this.router.navigate(["status-pagamento"], {
+      queryParams: {
+        numPag: numPag,
+      },
+    });
+  }
 
 }

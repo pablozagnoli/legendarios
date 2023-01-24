@@ -25,6 +25,7 @@ import { ThirthSteepComponent } from "./cadastro-senderistas/ThirthSteep/ThirthP
 import { CdkStepper } from "@angular/cdk/stepper";
 import { PagamentoCadastroSenderistaComponent } from './cadastro-senderistas/pagamento-cadastro-senderista/pagamento-cadastro-senderista.component';
 import { DescricaoEventoCadastroSenderistaComponent } from './cadastro-senderistas/descricao-evento-cadastro-senderista/descricao-evento-cadastro-senderista.component';
+import { StatusPagamentoComponent } from './cadastro-senderistas/pagamento-cadastro-senderista/status-pagamento/status-pagamento.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import { DescricaoEventoCadastroSenderistaComponent } from './cadastro-senderist
         SecondSteepComponent,
         ThirthSteepComponent,
         PagamentoCadastroSenderistaComponent,
-        DescricaoEventoCadastroSenderistaComponent
+        DescricaoEventoCadastroSenderistaComponent,
+        StatusPagamentoComponent
     ],
     providers: [ MatStepper,CdkStepper,],
     imports: [
