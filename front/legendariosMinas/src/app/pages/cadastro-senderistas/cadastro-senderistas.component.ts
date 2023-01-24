@@ -12,7 +12,7 @@ import { CadatroSenderitasServiceService } from './services/cadatro-senderitas-s
 @Component({
   selector: 'app-cadastro-senderistas',
   templateUrl: './cadastro-senderistas.component.html',
-  styleUrls: ['./cadastro-senderistas.component.css'],
+  styleUrls: ['./cadastro-senderistas.component.scss'],
 })
 export class CadastroSenderistasComponent implements OnInit {
 

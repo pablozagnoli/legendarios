@@ -4,6 +4,8 @@ import { EditarLegendarioComponent } from './pages/AreaAdm/home-adm/editar-legen
 import { HomeAdmComponent } from './pages/AreaAdm/home-adm/home-adm.component';
 import { LoginAdmComponent } from './pages/AreaAdm/login-adm/login-adm.component';
 import { CadastroSenderistasComponent } from './pages/cadastro-senderistas/cadastro-senderistas.component';
+import { DescricaoEventoCadastroSenderistaComponent } from './pages/cadastro-senderistas/descricao-evento-cadastro-senderista/descricao-evento-cadastro-senderista.component';
+import { PagamentoCadastroSenderistaComponent } from './pages/cadastro-senderistas/pagamento-cadastro-senderista/pagamento-cadastro-senderista.component';
 import { StatusPagamentoComponent } from './pages/cadastro-senderistas/pagamento-cadastro-senderista/status-pagamento/status-pagamento.component';
 import { HomeComponent } from './pages/home/home.component';
 
@@ -22,7 +24,7 @@ const routes: Routes = [
     component: LoginAdmComponent
   },
   {
-    path: 'cadastrar-sendenrista',
+    path: 'cadastrar-senderista',
     component: CadastroSenderistasComponent
   },
   {
@@ -32,12 +34,22 @@ const routes: Routes = [
   {
     path: 'editar-legendario',
     component: EditarLegendarioComponent
-  }
-  ,
+  },
   {
     path: 'status-pagamento',
     component: StatusPagamentoComponent
+  },
+  {
+    path: 'descricao-evento-senderista',
+    component: DescricaoEventoCadastroSenderistaComponent
   }
+  ,
+  {
+    path: 'pagamento-senderista',
+    component: PagamentoCadastroSenderistaComponent
+  }
+
+
 ];
 
 @NgModule({

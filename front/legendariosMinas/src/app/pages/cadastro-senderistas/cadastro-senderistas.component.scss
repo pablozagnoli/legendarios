@@ -15,3 +15,16 @@
 .demo-radio-button {
   margin: 5px;
 }
+
+
+.required {
+  select {
+    color: red;
+    border-color: red;
+  }
+
+  label {
+    color: red;
+    font-weight: bold;
+  }
+}

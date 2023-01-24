@@ -1,7 +1,4 @@
-<app-descricao-evento-cadastro-senderista #descricaoEvento class="container"></app-descricao-evento-cadastro-senderista>
-
-<div [hidden]="descricaoEvento.Cadastrovisivel" class="container">
-
+<div class="container">
 
   <div class="py-5 text-center">
     <h2></h2>
@@ -17,8 +14,8 @@
       <form [formGroup]="formGroup" class="needs-validation">
         <div class="row g-3">
 
-          <div class="col-sm-6">
-            <label for="nomecompleto" class="form-label"></label>
+          <div class="col-sm-6" [class.required]="formGroup.controls['nomecompleto'].getError('required')">
+            <label for="nomecompleto" class="form-label">Nome Completo</label>
             <input type="text" class="form-control" id="nomecompleto" formControlName="nomecompleto" placeholder=""
               value="" required>
             <div class="invalid-feedback">
@@ -26,15 +23,15 @@
             </div>
           </div>
 
-          <div class="col-6">
-            <label for="email" class="form-label"> <span class="text-muted">(Optional)</span></label>
+          <div class="col-6" [class.required]="formGroup.controls['email'].getError('required')">
+            <label for="email" class="form-label">E-mail</label>
             <input type="email" class="form-control" formControlName="email" id="email" placeholder="you@example.com">
             <div class="invalid-feedback">
               Obrigatório.
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-3" [class.required]="formGroup.controls['cpf'].getError('required')">
             <label for="cpf" class="form-label">CPF</label>
             <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="1234 Main St" required>
             <div class="invalid-feedback">
@@ -42,7 +39,7 @@
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-3" [class.required]="formGroup.controls['rg'].getError('required')">
             <label for="rg" class="form-label">RG</label>
             <input type="text" class="form-control" id="rg" formControlName="rg" placeholder="1234 Main St" required>
             <div class="invalid-feedback">
@@ -50,7 +47,7 @@
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-3" [class.required]="formGroup.controls['dataespedicaorg'].getError('required')">
             <label for="dataespedicaorg" class="form-label">Data Expdição</label>
             <input type="date" class="form-control" id="dataespedicaorg" formControlName="dataespedicaorg" required>
             <div class="invalid-feedback">
@@ -58,7 +55,7 @@
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-3" [class.required]="formGroup.controls['rgespedidopor'].getError('required')">
             <label for="rgespedidopor" class="form-label">Expedido Por</label>
             <input type="text" class="form-control" id="rgespedidopor" formArrayName="rgespedidopor" placeholder="SSP"
               required>
@@ -67,7 +64,7 @@
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-3" [class.required]="formGroup.controls['datanascimento'].getError('required')">
             <label for="datanascimento" class="form-label">Data Nascimento</label>
             <input type="date" class="form-control" id="datanascimento" formControlName="datanascimento" required>
             <div class="invalid-feedback">
@@ -75,7 +72,7 @@
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-3" [class.required]="formGroup.controls['idade'].getError('required')">
             <label for="idade" class="form-label">Idade</label>
             <input type="text" class="form-control" id="idade" formControlName="idade" placeholder="27 anos" required>
             <div class="invalid-feedback">
@@ -83,7 +80,7 @@
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-3" [class.required]="formGroup.controls['celular'].getError('required')">
             <label for="celular" class="form-label">Celular</label>
             <input type="number" class="form-control" id="celular" formControlName="celular"
               placeholder="31 99291 . . . " required>
@@ -92,7 +89,7 @@
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-3" [class.required]="formGroup.controls['nacionalidade'].getError('required')">
             <label for="nacionalidade" class="form-label">Nacionalidade</label>
             <input type="text" class="form-control" id="nacionalidade" formControlName="nacionalidade"
               placeholder="Brasileira" required>
@@ -105,7 +102,7 @@
 
           <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-4" [class.required]="formGroup.controls['address'].getError('required')">
 
               <label for="address" class="form-label"></label>
               <input type="text" class="form-control" id="address" formControlName="address"
@@ -116,7 +113,7 @@
             </div>
 
 
-            <div class="col-md-4">
+            <div class="col-md-4" [class.required]="formGroup.controls['country'].getError('required')">
               <label for="country" class="form-label"></label>
               <select class="form-select" id="country" formControlName="country" required>
                 <option value=""></option>
@@ -128,7 +125,7 @@
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2" [class.required]="formGroup.controls['state'].getError('required')">
               <label for="state" class="form-label">Estado</label>
               <select class="form-select" formControlName="state" id="state" required>
                 <option value=""></option>
@@ -140,7 +137,7 @@
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2" [class.required]="formGroup.controls['cidade'].getError('required')">
               <label for="cidade" class="form-label">Cidade</label>
               <select class="form-select" id="cidade" formControlName="cidade" required>
                 <option value=""></option>
@@ -152,7 +149,7 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4" [class.required]="formGroup.controls['cep'].getError('required')">
               <label for="cep" class="form-label">CEP</label>
               <input class="form-control" formControlName="cep" id="cep">
               <div class="invalid-feedback">
@@ -164,7 +161,7 @@
 
           <hr class="my-4">
 
-          <div class="col-3">
+          <div class="col-3" [class.required]="formGroup.controls['profissao'].getError('required')">
             <label for="profissao" class="form-label">Profissão</label>
             <input type="text" class="form-control" id="profissao" formControlName="profissao" placeholder="Engenheiro"
               required>
@@ -173,7 +170,7 @@
             </div>
           </div>
 
-          <div class="col-3">
+          <div class="col-3" [class.required]="formGroup.controls['religiao'].getError('required')">
             <label for="religiao" class="form-label">Religião</label>
             <input type="text" class="form-control" id="religiao" formControlName="religiao" placeholder="Cristao"
               required>
@@ -182,7 +179,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['civilstate'].getError('required')">
             <label for="civilstate" class="form-label">Estado civil</label>
             <select class="form-select" id="civilstate" formControlName="civilstate" required>
               <option value=""></option>
@@ -201,7 +198,7 @@
 
         <div class="row g-6">
 
-          <div class="col-md-2">
+          <div class="col-md-2" [class.required]="formGroup.controls['temfilhos'].getError('required')">
             <label for="temfilhos" class="form-label">Tem Filhos</label>
             <select class="form-select" id="temfilhos" formControlName="temfilhos" required>
               <option value=""></option>
@@ -213,7 +210,7 @@
             </div>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-2" [class.required]="formGroup.controls['usamedicacao'].getError('required')">
             <label for="usamedicacao" class="form-label">Usa Medicação</label>
             <select class="form-select" id="usamedicacao" formControlName="usamedicacao" required>
               <option value=""></option>
@@ -225,7 +222,7 @@
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-4" [class.required]="formGroup.controls['igreja'].getError('required')">
             <label for="igreja" class="form-label">Igreja</label>
             <input type="text" class="form-control" id="igreja" formControlName="igreja" placeholder="Central" required>
             <div class="invalid-feedback">
@@ -233,7 +230,7 @@
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-4" [class.required]="formGroup.controls['qualredepertence'].getError('required')">
             <label for="qualredepertence" class="form-label">Qual Rede Pertence</label>
             <input type="text" class="form-control" id="qualredepertence" formControlName="qualredepertence"
               placeholder="ALT" required>
@@ -242,7 +239,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['numdacamisa'].getError('required')">
             <label for="numdacamisa" class="form-label">Num Da Camisa</label>
             <input type="text" class="form-control" id="numdacamisa" formControlName="numdacamisa"
               placeholder="P ... M .. G" required>
@@ -251,7 +248,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['frequentacelula'].getError('required')">
             <label for="frequentacelula" class="form-label">Frequento Célula</label>
             <select class="form-select" id="frequentacelula" formControlName="frequentacelula" required>
               <option value=""></option>
@@ -263,7 +260,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['liderdecelula'].getError('required')">
             <label for="liderdecelula" class="form-label">Lider de célula</label>
             <select class="form-select" id="liderdecelula" formControlName="liderdecelula" required>
               <option value=""></option>
@@ -277,7 +274,7 @@
 
           <hr class="my-4">
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['nomecontatoemergencia1'].getError('required')">
             <label for="nomecontatoemergencia1" class="form-label">Nome Contato Emergência 1</label>
             <input type="text" class="form-control" id="nomecontatoemergencia1" formControlName="nomecontatoemergencia1"
               placeholder="" required>
@@ -286,7 +283,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['numerocontatoemergencia1'].getError('required')">
             <label for="numerocontatoemergencia1" class="form-label">Num Contato Emergência 1</label>
             <input type="text" class="form-control" id="numerocontatoemergencia1"
               formControlName="numerocontatoemergencia1" placeholder="" required>
@@ -295,7 +292,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['nomecontatoemergencia2'].getError('required')">
             <label for="nomecontatoemergencia2" class="form-label">Nome Contato Emergência 2</label>
             <input type="text" class="form-control" id="nomecontatoemergencia2" formControlName="nomecontatoemergencia2"
               placeholder="" required>
@@ -304,7 +301,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['numerocontatoemergencia1'].getError('required')">
             <label for="numerocontatoemergencia1" class="form-label">Num Contato Emergência 2</label>
             <input type="text" class="form-control" id="numerocontatoemergencia1"
               formControlName="numerocontatoemergencia1" placeholder="" required>
@@ -313,7 +310,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['medicofamilia'].getError('required')">
             <label for="medicofamilia" class="form-label">Nome Médico Familiar</label>
             <input type="text" class="form-control" id="medicofamilia" formControlName="medicofamilia" placeholder=""
               required>
@@ -322,7 +319,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['telmedicofamilia'].getError('required')">
             <label for="telmedicofamilia" class="form-label">Tel Médico Familiar</label>
             <input type="text" class="form-control" id="telmedicofamilia" formControlName="telmedicofamilia"
               placeholder="" required>
@@ -331,7 +328,7 @@
             </div>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-2" [class.required]="formGroup.controls['conveniomedico'].getError('required')">
             <label for="conveniomedico" class="form-label">Convenio Médico</label>
             <select class="form-select" id="conveniomedico" formControlName="conveniomedico" required>
               <option value=""></option>
@@ -344,7 +341,7 @@
           </div>
 
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['nomeconveniomedico'].getError('required')">
             <label for="nomeconveniomedico" class="form-label">Nome Convenio Médico</label>
             <input type="text" class="form-control" id="nomeconveniomedico" formControlName="nomeconveniomedico"
               placeholder="" required>
@@ -353,7 +350,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['possuisegurodevida'].getError('required')">
             <label for="possuisegurodevida" class="form-label">Possui Seguro de Vida</label>
             <select class="form-select" id="possuisegurodevida" formControlName="possuisegurodevida" required>
               <option value=""></option>
@@ -365,7 +362,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['empresasegurodevida'].getError('required')">
             <label for="empresasegurodevida" class="form-label">Empresa Seguro Vida</label>
             <input type="text" class="form-control" id="empresasegurodevida" formControlName="empresasegurodevida"
               placeholder="" required>
@@ -374,7 +371,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['numeroopolicesegurodevida'].getError('required')">
             <label for="numeroopolicesegurodevida" class="form-label">Num Apolice Seg Vida</label>
             <input type="text" class="form-control" id="numeroopolicesegurodevida"
               formControlName="numeroopolicesegurodevida" placeholder="" required>
@@ -383,7 +380,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3" [class.required]="formGroup.controls['tiposanguineo'].getError('required')">
             <label for="tiposanguineo" class="form-label">Tipo Sanguineo</label>
             <select class="form-select" id="tiposanguineo" formControlName="tiposanguineo" required>
               <option value=""></option>
@@ -401,7 +398,7 @@
             </div>
           </div>
 
-          <div class="col-md-12">
+          <div class="col-md-12" [class.required]="formGroup.controls['possuiasdoencasabaixo'].getError('required')">
             <label for="possuiasdoencasabaixo" class="form-label">Possui as doenças abaixo</label>
             <select class="form-select" id="possuiasdoencasabaixo" formControlName="possuiasdoencasabaixo" required>
               <option value=""></option>
@@ -424,7 +421,8 @@
             </div>
           </div>
 
-          <div class="col-md-12">
+          <div class="col-md-12"
+            [class.required]="formGroup.controls['semarcoupossuiasdoencasabaixo'].getError('required')">
             <label for="semarcoupossuiasdoencasabaixo" class="form-label">Se você marcou alguma das opções na pergunta
               anterior, explique em
               detalhes qual é a doença e/ou condição:</label>
@@ -435,7 +433,7 @@
             </div>
           </div>
 
-          <div class="col-md-12">
+          <div class="col-md-12" [class.required]="formGroup.controls['temoutroproblemasaude'].getError('required')">
             <label for="temoutroproblemasaude" class="form-label">Tem outro problema de saúde? Qual</label>
             <input type="text" class="form-control" id="temoutroproblemasaude" formControlName="temoutroproblemasaude"
               placeholder="" required>
@@ -445,7 +443,7 @@
           </div>
 
 
-          <div class="col-md-12">
+          <div class="col-md-12" [class.required]="formGroup.controls['usamedicamentoqual'].getError('required')">
             <label for="usamedicamentoqual" class="form-label">Usa médicamento? Qual</label>
             <input type="text" class="form-control" id="usamedicamentoqual" formControlName="usamedicamentoqual"
               placeholder="" required>
@@ -455,7 +453,8 @@
           </div>
 
 
-          <div class="col-md-12">
+          <div class="col-md-12"
+            [class.required]="formGroup.controls['porrazoesmedicasdietaespecial'].getError('required')">
             <label for="porrazoesmedicasdietaespecial" class="form-label">Por RAZÕES MÉDICAS, requer alguma dieta
               especial, (descreva
               detalhadamente)</label>
@@ -468,7 +467,7 @@
 
           <hr class="my-4">
 
-          <div class="col-md-12">
+          <div class="col-md-12" [class.required]="formGroup.controls['termoizencaorespmedica'].getError('required')">
             <label for="termoizencaorespmedica" class="form-label">Termo de Participação, Isenção de Responsabilidade
               Médica ,
               Renúncia, Liberação de Responsabilidades e Outras Avenças*</label>
@@ -552,7 +551,7 @@ Belo Horizonte – MG, junho de 2021.
 
           <hr class="my-4">
 
-          <div class="col-md-12">
+          <div class="col-md-12" [class.required]="formGroup.controls['politicacancelamento'].getError('required')">
             <label for="politicacancelamento" class="form-label">Politica de Cancelamento e Reembolso*</label>
             <textarea type="text" class="form-control" id="politicacancelamento" formControlName="politicacancelamento"
               readonly required>
@@ -575,7 +574,8 @@ Belo Horizonte – MG, junho de 2021.
 
           <hr class="my-4">
 
-          <div class="col-md-12">
+          <div class="col-md-12"
+            [class.required]="formGroup.controls['declaracaoinfoverdadeiras'].getError('required')">
             <label for="declaracaoinfoverdadeiras" class="form-label">Declaração *</label>
             <textarea type="text" class="form-control" id="declaracaoinfoverdadeiras"
               formControlName="declaracaoinfoverdadeiras" readonly required>
@@ -598,12 +598,12 @@ Belo Horizonte – MG, junho de 2021.
 
       </form>
     </div>
-  </div>
 
-  <div class="row">
-
-    <app-pagamento-cadastro-senderista></app-pagamento-cadastro-senderista>
-
+    <div class="row">
+      <button
+      routerLink="/pagamento-senderista"
+      class="w-100 btn btn-success btn-lg">Concluir cadastro</button>
+    </div>
   </div>
 
 </div>
