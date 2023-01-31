@@ -18,6 +18,8 @@ export class CadastroSenderistasComponent implements OnInit {
 
   formGroup = this.cadatroSenderitasServiceService.firstStepForm;
 
+  verificaForm = false;
+
   FormDadosLabels = {
     Rec: 'REC444',
     Titulo: 'LEGENDARIOS' + ' - ' + 'REC444',
@@ -96,5 +98,20 @@ export class CadastroSenderistasComponent implements OnInit {
 
 
     //this.router.navigate([urlPagamento]);
+  }
+
+  concluirCadastro() {
+    this.verificaForm = true;
+
+    if (!this.formGroup.controls['termoizencaorespmedicaradio'].getError('required')) {
+      this.router.navigate(["pagamento-senderista"], {
+        queryParams: {
+          numPag: 0,
+        },
+      });
+    }else{
+      alert("EXISTEM CAMPOS A SEREM PREENCHIDOS")
+    }
+
   }
 }
