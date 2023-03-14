@@ -1,117 +1,133 @@
 <form class="container" style="margin-top: 2cm;">
 
-  <div class="row g-6">
+  <div class="border border-dark rounded-3 row g-6">
 
-    <div class="col-md-12 col-lg-12">
+    <div class="col-12">
 
       <h4 class="mb-3"> Editar Cadastro De Legendario</h4>
 
-      <div class="row g-3">
+      <div class="row">
 
-          <div class="col-3">
-            <label for="address" class="form-label">Nº egendario</label>
-            <input type="text" class="form-control" id="address" placeholder="" [formControl]="n_lgnd">
+        <div class="col-3">
+          <label for="address" class="form-label">Nº egendario</label>
+          <input type="text" class="form-control" id="address" placeholder="" [formControl]="n_lgnd">
 
-          </div>
+        </div>
 
-          <div class="col-5">
-            <label for="address" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="address" placeholder="" [formControl]="nome">
+        <div class="col-5">
+          <label for="address" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="address" placeholder="" [formControl]="nome">
 
-          </div>
+        </div>
 
-          <div class="col-4">
-            <label for="address" class="form-label">Rec</label>
-            <input type="text" class="form-control" id="address" placeholder="" [formControl]="rec">
+        <div class="col-4">
+          <label for="address" class="form-label">Rec</label>
+          <input type="text" class="form-control" id="address" placeholder="" [formControl]="rec">
 
-          </div>
+        </div>
 
-          <div class="col-4">
-            <label for="address" class="form-label">Email</label>
-            <input type="text" class="form-control" id="address" placeholder="" [formControl]="email">
+        <div class="col-4">
+          <label for="address" class="form-label">Email</label>
+          <input type="text" class="form-control" id="address" placeholder="" [formControl]="email">
 
-          </div>
+        </div>
 
-          <div class="col-3">
-            <label for="address" class="form-label">Celular</label>
-            <input type="text" class="form-control" id="address" [formControl]="celular">
+        <div class="col-3">
+          <label for="address" class="form-label">Celular</label>
+          <input type="text" class="form-control" id="address" [formControl]="celular">
 
-          </div>
+        </div>
 
 
-          <div class="col-2">
-            <label for="address" class="form-label">CPF</label>
-            <input type="text" class="form-control" id="address" [formControl]="cadastro_pessoa">
+        <div class="col-2">
+          <label for="address" class="form-label">CPF</label>
+          <input type="text" class="form-control" id="address" [formControl]="cadastro_pessoa">
 
-          </div>
+        </div>
 
-          <div class="col-3">
-            <label for="address" class="form-label">Data Nascimento</label>
-            <input type="text" class="form-control" id="address" [formControl]="data_de_nascimento">
+        <div class="col-3">
+          <label for="address" class="form-label">Data Nascimento</label>
+          <input type="text" class="form-control" id="address" [formControl]="data_de_nascimento">
 
-          </div>
+        </div>
 
-          <div class="col-2">
-            <label for="address" class="form-label">Estado civil</label>
-            <input type="text" class="form-control" id="address" [formControl]="estado_civil">
+        <div class="col-2">
+          <label for="address" class="form-label">Estado civil</label>
+          <input type="text" class="form-control" id="address" [formControl]="estado_civil">
 
-          </div>
+        </div>
 
-          <div class="col-3">
-            <label for="address" class="form-label">Profissao</label>
-            <input type="text" class="form-control" id="address" [formControl]="profissao">
+        <div class="col-3">
+          <label for="address" class="form-label">Profissao</label>
+          <input type="text" class="form-control" id="address" [formControl]="profissao">
 
-          </div>
+        </div>
 
-          <div class="col-2">
-            <label for="address" class="form-label">Tipo Sanguineo</label>
-            <input type="text" class="form-control" id="address" [formControl]="tipo_sanguineo">
+        <div class="col-2">
+          <label for="address" class="form-label">Tipo Sanguineo</label>
+          <input type="text" class="form-control" id="address" [formControl]="tipo_sanguineo">
 
-          </div>
+        </div>
 
-          <div class="col-2">
-            <label for="address" class="form-label">Religiao</label>
-            <input type="text" class="form-control" id="address" [formControl]="religiao">
+        <div class="col-2">
+          <label for="address" class="form-label">Religiao</label>
+          <input type="text" class="form-control" id="address" [formControl]="religiao">
 
-          </div>
+        </div>
 
-          <div class="col-2">
-            <label for="address" class="form-label">Igreja</label>
-            <input type="text" class="form-control" id="address" [formControl]="igreja">
+        <div class="col-2">
+          <label for="address" class="form-label">Igreja</label>
+          <input type="text" class="form-control" id="address" [formControl]="igreja">
 
-          </div>
+        </div>
 
-          <div class="col-2">
-            <label for="address" class="form-label">Batizado</label>
-            <input type="text" class="form-control" id="address" [formControl]="e_batizado">
+        <div class="col-2">
+          <label for="address" class="form-label">Batizado</label>
+          <input type="text" class="form-control" id="address" [formControl]="e_batizado">
 
-          </div>
+        </div>
 
-          <div class="col-2">
-            <label for="address" class="form-label">Frequenta célula</label>
-            <input type="text" class="form-control" id="address" [formControl]="frequanta_celula">
+        <div class="col-2">
+          <label for="address" class="form-label">Frequenta célula</label>
+          <input type="text" class="form-control" id="address" [formControl]="frequanta_celula">
 
-          </div>
+        </div>
 
-          <div class="col-2">
-            <label for="address" class="form-label">Rede</label>
-            <input type="text" class="form-control" id="address" [formControl]="rede">
+        <div class="col-2">
+          <label for="address" class="form-label">Rede</label>
+          <input type="text" class="form-control" id="address" [formControl]="rede">
 
-          </div>
+        </div>
 
-          <div class="col-2">
-            <label for="address" class="form-label">Lider de celula</label>
-            <input type="text" class="form-control" id="address" [formControl]="e_lider_de_celula">
+        <div class="col-2">
+          <label for="address" class="form-label">Lider de celula</label>
+          <input type="text" class="form-control" id="address" [formControl]="e_lider_de_celula">
 
-          </div>
+        </div>
 
-          <div class="col-2">
-            <label for="address" class="form-label">Ativo</label>
-            <input type="text" class="form-control" id="address" [formControl]="ativo">
+        <div class="col-2">
+          <label for="address" class="form-label">Ativo</label>
+          <input type="text" class="form-control" id="address" [formControl]="ativo">
 
-          </div>
+        </div>
 
       </div>
+
+      <div style="margin-top: 2cm;"></div>
+
+      <div class="row g-3">
+
+        <div class="col-12">
+          <button class="btn btn-success">Salvar</button>
+        </div>
+
+        <div>
+          <button class="btn btn-secondary">Cancelar</button>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 2cm;"></div>
 
     </div>
 

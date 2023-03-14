@@ -1,8 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { legendarios } from '../../Model/legendariosModel';
 import { HomeAdmService } from '../../service/home-adm.service';
+import { ActivatedRoute } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-table-home',
@@ -10,7 +13,10 @@ import { HomeAdmService } from '../../service/home-adm.service';
   styleUrls: ['./table-home.component.scss']
 })
 export class TableHomeComponent implements OnInit {
-  @Input("legendarios") listaDadosLegendarios: legendarios[] = [];
+
+  @ViewChild(MatPaginator) paginator: any;
+
+  listaDadosLegendarios: any;
 
   NameLegendario = new FormControl();
   NumeroLegendario = new FormControl();
@@ -41,7 +47,8 @@ export class TableHomeComponent implements OnInit {
   };
 
   constructor(private serviceHomeAdm: HomeAdmService,
-              private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.filtroGridLegendariosHome();
@@ -65,44 +72,67 @@ export class TableHomeComponent implements OnInit {
   filtroGridLegendariosHome() {
 
     this.NameLegendario.valueChanges.subscribe((value) => {
-      this.carregarDadosLegendariosFiltrado(this.NameLegendario.value,  this.NumeroLegendario.value)
+      this.carregarDadosLegendariosFiltrado(this.NameLegendario.value, this.NumeroLegendario.value)
     })
 
     this.NumeroLegendario.valueChanges.subscribe((value) => {
-      this.carregarDadosLegendariosFiltrado(this.NameLegendario.value,  this.NumeroLegendario.value)
+      this.carregarDadosLegendariosFiltrado(this.NameLegendario.value, this.NumeroLegendario.value)
     })
   }
 
   carregarDadosLegendarios() {
 
+    let pag = {
+      PAGINAATUAL: 1,
+      ULTIMAPAGINA: 1,
+      QUANTIDADEPORPAGINA: 1
+    }
+
     let param = {
+      PAGINATION: pag,
+      DATAINI: null,
+      DATAFIM: null,
+      CODOLEGENDARIO: null,
       nomelegendario: '',
       codigolegendario: 0
     }
 
+
     this.serviceHomeAdm.getTodosLegendarios(param).subscribe((resultado) => {
-      this.listaDadosLegendarios = resultado
+      this.listaDadosLegendarios = new MatTableDataSource<legendarios>(resultado);
+      this.listaDadosLegendarios.paginator = this.paginator;
     });
     console.log(this.listaDadosLegendarios);
   }
 
   carregarDadosLegendariosFiltrado(nomelegendario: string, codigolegendario: number) {
 
-    let param = {
-      nomelegendario: nomelegendario,
-      codigolegendario: codigolegendario
+    let pag = {
+      PAGINAATUAL: 1,
+      ULTIMAPAGINA: 1,
+      QUANTIDADEPORPAGINA: 1
     }
 
-    this.serviceHomeAdm.getTodosLegendarios(param).subscribe((resultado) => {
-      this.listaDadosLegendarios = resultado
+    let param = {
+      PAGINATION: pag,
+      DATAINI: null,
+      DATAFIM: null,
+      CODOLEGENDARIO: null,
+      nomelegendario: '',
+      codigolegendario: 0
+    }
+
+    this.serviceHomeAdm.getTodosLegendarios(param).subscribe((resultado: legendarios[]) => {
+      this.listaDadosLegendarios = new MatTableDataSource<legendarios>(resultado);
+      this.listaDadosLegendarios.paginator = this.paginator;
     });
     console.log(this.listaDadosLegendarios);
   }
 
-  editar(event: any ,numleg: any){
+  editar(event: any, numleg: any) {
     console.log(numleg)
 
-    sessionStorage.setItem("numLegendario",numleg)
+    sessionStorage.setItem("numLegendario", numleg)
 
     this.serviceHomeAdm.numLegendario = numleg;
 

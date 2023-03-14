@@ -42,5 +42,18 @@ namespace legendarios_API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("trazer-all")]
+        public async Task<IActionResult> GetLegendariosAll()
+        {
+            var result = await _repositorio.GetAllLegendariosAll();
+
+            if (result.Count() < 1)
+            {
+                return BadRequest("NÃO A DADOS");
+            }
+
+            return Ok(result);
+        }
+
     }
 }

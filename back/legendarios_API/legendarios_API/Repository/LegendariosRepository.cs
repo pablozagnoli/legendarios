@@ -19,7 +19,7 @@ namespace legendarios_API.Repository
     public class LegendariosRepository : ILegendariosRepository
     {
 
-        static string _connectionString = "Server=173.224.117.181;port=33;Database=DBLEGENDARIOS;Uid=root;Pwd=97514815";
+        static string _connectionString = "Server=89.117.32.251;port=33;Database=DBLEGENDARIOS;Uid=root;Pwd=97514815";
         MySqlConnection _conn = new MySqlConnection(_connectionString);
 
 
@@ -65,12 +65,30 @@ namespace legendarios_API.Repository
             {
                 return null;
             }
+        }
 
+        public async Task<IEnumerable<LegendariosDTO>> GetAllLegendariosAll()
+        {
+            try
+            {
+                var sql = "SELECT * FROM legendarios";
+
+                var response = new List<LegendariosDTO>();
+
+                var result = await this._conn.QueryAsync<LegendariosDTO>(sql);
+
+                response = result.ToList();
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public async Task<LegendariosDTO> GetLegendarioById(string IdLegendario)
         {
-
             try
             {
                 var sql = $"SELECT * FROM legendarios where n_lgnd = {IdLegendario}";

@@ -1,27 +1,27 @@
-<div class="table-responsive orcamentos scroll-grey">
+<h2>Legendarios</h2>
 
-  <h2>Legendarios</h2>
+<form class="needs-validation">
+  <div class="row g-3">
 
-  <form class="needs-validation" novalidate>
-    <div class="row g-3">
-
-      <div class="col-sm-6">
-        <label for="NameLegendario" class="form-label">{{ this.FormDadosLabels.NomeLegendario }}</label>
-        <input type="text" class="form-control" id="NameLegendario" [formControl]="NameLegendario" placeholder="" value="" required>
-      </div>
-
-      <div class="col-sm-6">
-        <label for="NumeroLegendario" class="form-label">{{ this.FormDadosLabels.NumeroLegendario }}</label>
-        <input type="number" class="form-control" id="NumeroLegendario" [formControl]="NumeroLegendario" placeholder="" value="" required>
-      </div>
-
+    <div class="col-sm-6">
+      <label for="NameLegendario" class="form-label">{{ this.FormDadosLabels.NomeLegendario }}</label>
+      <input type="text" class="form-control" id="NameLegendario" [formControl]="NameLegendario" placeholder="" value=""
+        required>
     </div>
 
-    <div>
-      <mat-paginator itemsPerPageLabel="Itens por pagina" [length]="this.totaldeorcamentospararetornar"
-        [pageSizeOptions]="[10, 50, 100]" aria-label="Selecione a pagina" (page)="PaginatorhandlePageEvent($event)">
-      </mat-paginator>
+    <div class="col-sm-6">
+      <label for="NumeroLegendario" class="form-label">{{ this.FormDadosLabels.NumeroLegendario }}</label>
+      <input type="number" class="form-control" id="NumeroLegendario" [formControl]="NumeroLegendario" placeholder=""
+        value="" required>
     </div>
+
+  </div>
+
+
+  <mat-paginator [pageSizeOptions]="[10, 50, 100]" showFirstLastButtons [length]="listaDadosLegendarios?.data?.length"
+    [pageIndex]="0"></mat-paginator>
+
+  <div class="table-responsive orcamentos scroll-grey">
 
     <table mat-table [dataSource]="listaDadosLegendarios" class="table table-striped table-sm" multiTemplateDataRows>
 
@@ -136,7 +136,7 @@
       <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef>Editar</th>
         <td mat-cell *matCellDef="let element" class="pointer" (click)="editar($event , element.n_lgnd)">
-          <i class="far fa-edit p-2"></i>
+          <span class="material-symbols-outlined">edit</span>
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>

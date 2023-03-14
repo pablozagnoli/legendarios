@@ -10,8 +10,6 @@
     <h4 class="mb-3">Cadastro</h4>
   </div>
 
-
-
   <div class="border border-dark rounded-3 row g-6">
 
     <div class="col-md-12 col-lg-12">
@@ -87,7 +85,7 @@
 
           <div class="col-3" [class.required]="this.verificaForm && formGroup.controls['celular'].getError('required')">
             <label for="celular" class="form-label">Celular</label>
-            <input type="number" class="form-control" id="celular" formControlName="celular"
+            <input type="text" class="form-control" id="celular" formControlName="celular"
               placeholder="31 99291 . . . " required>
             <div class="invalid-feedback">
               Obrigatório.
@@ -120,11 +118,7 @@
 
             <div class="col-md-4" [class.required]="this.verificaForm && formGroup.controls['country'].getError('required')">
               <label for="country" class="form-label">Pais</label>
-              <select class="form-select" id="country" formControlName="country" required>
-                <option value=""></option>
-                <option>Brasil</option>
-                <option>United States</option>
-              </select>
+              <input class="form-select" id="country" formControlName="country" required>
               <div class="invalid-feedback">
                 Obrigatório.
               </div>
@@ -132,11 +126,7 @@
 
             <div class="col-md-2" [class.required]="this.verificaForm && formGroup.controls['state'].getError('required')">
               <label for="state" class="form-label">Estado</label>
-              <select class="form-select" formControlName="state" id="state" required>
-                <option value=""></option>
-                <option>Minas Gerais</option>
-                <option>São Paulo</option>
-              </select>
+              <input class="form-select" formControlName="state" id="state" required>
               <div class="invalid-feedback">
                 Obrigatório..
               </div>
@@ -144,11 +134,7 @@
 
             <div class="col-md-2" [class.required]="this.verificaForm && formGroup.controls['cidade'].getError('required')">
               <label for="cidade" class="form-label">Cidade</label>
-              <select class="form-select" id="cidade" formControlName="cidade" required>
-                <option value=""></option>
-                <option>Belo Horizonte</option>
-                <option>Contagem</option>
-              </select>
+              <input class="form-select" id="cidade" formControlName="cidade" required>
               <div class="invalid-feedback">
                 Obrigatório.
               </div>

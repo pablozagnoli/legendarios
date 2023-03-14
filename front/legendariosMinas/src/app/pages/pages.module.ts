@@ -26,6 +26,7 @@ import { CdkStepper } from "@angular/cdk/stepper";
 import { PagamentoCadastroSenderistaComponent } from './cadastro-senderistas/pagamento-cadastro-senderista/pagamento-cadastro-senderista.component';
 import { DescricaoEventoCadastroSenderistaComponent } from './cadastro-senderistas/descricao-evento-cadastro-senderista/descricao-evento-cadastro-senderista.component';
 import { StatusPagamentoComponent } from './cadastro-senderistas/pagamento-cadastro-senderista/status-pagamento/status-pagamento.component';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,9 @@ import { StatusPagamentoComponent } from './cadastro-senderistas/pagamento-cadas
         MatTableModule,
         MatPaginatorModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule
     ]
 })
 export class PagesModule { }

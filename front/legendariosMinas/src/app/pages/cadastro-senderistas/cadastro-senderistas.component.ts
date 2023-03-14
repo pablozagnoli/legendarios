@@ -44,7 +44,7 @@ export class CadastroSenderistasComponent implements OnInit {
     private serviceHomeAdm: HomeAdmService) { }
 
   ngOnInit() {
-
+    this.buscarCep();
   }
 
   mercadoIntegrate() {
@@ -109,9 +109,22 @@ export class CadastroSenderistasComponent implements OnInit {
           numPag: 0,
         },
       });
-    }else{
+    } else {
       alert("EXISTEM CAMPOS A SEREM PREENCHIDOS")
     }
 
+  }
+
+  buscarCep() {
+    this.formGroup.controls['cep'].valueChanges.subscribe((value) => {
+      this.serviceHomeAdm.getCepViaCep(value!).subscribe((result) => {
+
+        this.formGroup.controls['address'].setValue(result.logradouro);
+        this.formGroup.controls['state'].setValue(result.uf);
+        this.formGroup.controls['cidade'].setValue(result.localidade);
+        this.formGroup.controls['country'].setValue("Brasil");
+
+      })
+    })
   }
 }

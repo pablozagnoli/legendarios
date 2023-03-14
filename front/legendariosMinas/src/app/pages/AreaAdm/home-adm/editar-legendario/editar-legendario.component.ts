@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { legendarios } from '../Model/legendariosModel';
 import { HomeAdmService } from '../service/home-adm.service';
 
@@ -10,7 +10,7 @@ import { HomeAdmService } from '../service/home-adm.service';
   styleUrls: ['./editar-legendario.component.css']
 })
 export class EditarLegendarioComponent implements OnInit {
-  numLegendario: string | undefined;
+  numLegendario: string = '';
   dadosLegendario: legendarios | undefined;
 
   n_lgnd = new FormControl();
@@ -33,28 +33,34 @@ export class EditarLegendarioComponent implements OnInit {
   deletado = new FormControl();
 
   constructor(private route: ActivatedRoute,
-              private serviceHomeAdm: HomeAdmService) { }
+    private serviceHomeAdm: HomeAdmService) { }
 
   ngOnInit(): void {
     this.getNumLegendário();
   }
 
   getNumLegendário() {
-    this.route.params.subscribe(params =>
-      this.numLegendario = params['numLegendario']);
 
-    this.getDadosLegendario();
+    this.numLegendario = this.route.snapshot.params['numLegendario'];
+
+    this.route.queryParams.subscribe((params: Params) => {
+      this.numLegendario = params['numLegendario'];
+
+      this.getDadosLegendario();
+    });
   }
 
-  getDadosLegendario(){
-    this.serviceHomeAdm.getLegendario( this.numLegendario! ).subscribe((resultado) => {
+  getDadosLegendario() {
+    const id = this.route.snapshot.params['id'];
+
+    this.serviceHomeAdm.getLegendario(this.numLegendario!).subscribe((resultado) => {
       this.dadosLegendario = resultado;
       this.inicilizaForm();
     });
 
   }
 
-  inicilizaForm(){
+  inicilizaForm() {
     this.n_lgnd.setValue(this.dadosLegendario?.n_lgnd);
     this.nome.setValue(this.dadosLegendario?.nome);
     this.rec.setValue(this.dadosLegendario?.rec);
@@ -74,7 +80,7 @@ export class EditarLegendarioComponent implements OnInit {
     this.ativo.setValue(this.dadosLegendario?.ativo);
     this.deletado.setValue(this.dadosLegendario?.deletado);
 
-    sessionStorage.setItem("numLegendario","")
+    sessionStorage.setItem("numLegendario", "")
   }
 
 }

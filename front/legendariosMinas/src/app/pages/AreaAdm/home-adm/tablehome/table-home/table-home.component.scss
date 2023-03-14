@@ -155,3 +155,29 @@ td:hover {
     transform: translateY(-5px) rotateX(0.5turn);
   }
 }
+
+.scroll-grey {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px white;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #dedede;
+    border-radius: 10px;
+  }
+
+  // Works on firefox
+  scrollbar-color: #dedede white;
+  scrollbar-width: thin;
+}
+
+.orcamentos {
+  max-height: 400px;
+  overflow-y: auto;
+}
+

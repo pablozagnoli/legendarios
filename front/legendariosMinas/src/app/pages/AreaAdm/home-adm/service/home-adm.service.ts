@@ -24,4 +24,8 @@ public numLegendario: string | undefined;
   getUrlPagameto(): Observable<string>{
     return this.httpcliente.get<string>(`${this.BASEURL}url-compra`);
   }
+
+  getCepViaCep(cep: string) : Observable<any>{
+    return this.httpcliente.get<any>(`https://viacep.com.br/ws/${cep}/json/`);
+  }
 }

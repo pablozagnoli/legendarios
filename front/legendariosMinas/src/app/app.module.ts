@@ -16,6 +16,7 @@ import { CadastrarPublicacoesComponent } from './pages/AreaAdm/cadastrar-publica
 import { HomeComponent } from './pages/home/home.component';
 import { CommonModule } from '@angular/common';
 import { PagesModule } from './pages/pages.module';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { PagesModule } from './pages/pages.module';
     FormsModule,
     CommonModule,
     PagesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [{ provide: Window, useValue: window }],
   bootstrap: [AppComponent]
