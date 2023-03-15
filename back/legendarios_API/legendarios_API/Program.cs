@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,7 +21,30 @@ namespace legendarios_API
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    var Dir = Directory.GetCurrentDirectory();
+                    var cert = @$"{Dir}/certificate/certificado.pfx";
+
+                    var existeArquivo = File.Exists(cert);
+
+                    if (!existeArquivo)
+                    {
+                        webBuilder.UseStartup<Startup>();
+                    }
+                    else
+                    {
+                        webBuilder.UseUrls("https://localhost:443");
+                        webBuilder.UseKestrel(options =>
+                        {
+                            options.ListenAnyIP(443, listenOptions =>
+                            {
+
+                                listenOptions.UseHttps(cert, "1995");
+                            });
+                        });
+
+                        webBuilder.UseStartup<Startup>();
+                    }
+
                 });
     }
 }

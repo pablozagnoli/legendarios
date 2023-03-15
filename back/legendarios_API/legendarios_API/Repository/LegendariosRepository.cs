@@ -8,102 +8,172 @@ using MySqlConnector;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Data.Common;
-using legendarios_API.DTO;
 using System.Threading.Tasks;
-using legendarios_API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using legendarios_API.Service;
+using legendarios_API.Entity;
+using System.Configuration;
 
 namespace legendarios_API.Repository
 {
-    public class LegendariosRepository : ILegendariosRepository
+    public class LegendariosRepository
     {
 
         static string _connectionString = "Server=89.117.32.251;port=33;Database=DBLEGENDARIOS;Uid=root;Pwd=97514815";
         MySqlConnection _conn = new MySqlConnection(_connectionString);
 
 
-        public IEnumerable<LegendariosDTO> GetDept()
+        public List<LegendariosDTO> GetDept()
         {
-            var sql = "SELECT DeptNo,DName,Location FROM Dept";
-            var result = this._conn.Query<LegendariosDTO>(sql).ToList();
-            return result;
+            try
+            {
+                var sql = "SELECT DeptNo,DName,Location FROM Dept";
+                var result = this._conn.Query<LegendariosDTO>(sql).ToList();
+                return result;
+            }
+            catch (Exception)
+            {
+                return new List<LegendariosDTO>();
+            }
         }
 
-        public LegendariosDTO GetDeptByDeptNo(int deptNo)
+        public ResponseListDTO GetDeptByDeptNo(int deptNo)
         {
-            var sql = "SELECT DeptNo,DName,Location FROM Dept WHERE DeptNo = @DeptNo";
-            var result = this._conn.Query<LegendariosDTO>(sql, new { DeptNo = deptNo }).FirstOrDefault();
-            return result;
+            try
+            {
+                var sql = "SELECT DeptNo,DName,Location FROM Dept WHERE DeptNo = @DeptNo";
+                var result = this._conn.Query<LegendariosDTO>(sql, new { DeptNo = deptNo }).FirstOrDefault();
+
+                var retorno = new ResponseListDTO()
+                {
+                    Sucesso = true,
+                   // Data = result,
+                    Erro = "",
+                };
+
+                return retorno;
+            }
+            catch (Exception ex)
+            {
+                return new ResponseListDTO() { Sucesso = false, Erro = ex.Message };
+            }
         }
 
-        public async Task<IEnumerable<LegendariosDTO>> GetAllLegendarios(LegendariosParams param)
+        public ResponseListDTO GetAllLegendarios()
         {
             try
             {
                 var sql = "SELECT * FROM legendarios";
 
-                var response = new List<LegendariosDTO>();
+                var result = this._conn.QueryAsync<LegendariosDTO>(sql).Result;
 
-                var result = await this._conn.QueryAsync<LegendariosDTO>(sql);
-
-                response = result.ToList();
-
-                if (!string.IsNullOrEmpty(param.NOMELEGENDARIO))
+                var response = new ResponseListDTO()
                 {
-                    response = result.Where(x => x.nome.ToUpper().Contains(param.NOMELEGENDARIO.ToUpper())).ToList();
-                }
-
-                if (param.CODIGOLEGENDARIO != null && param.CODIGOLEGENDARIO != 0)
-                {
-                    response = result.Where(x => x.n_lgnd.ToString().Contains(param.CODIGOLEGENDARIO.ToString())).ToList();
-                }
+                    Sucesso = true,
+                    Data = result.ToList(),
+                    Erro = ""
+                };
 
                 return response;
             }
             catch (Exception ex)
             {
-                return null;
+                return new ResponseListDTO() { Sucesso = false, Erro = ex.Message };
             }
         }
 
-        public async Task<IEnumerable<LegendariosDTO>> GetAllLegendariosAll()
+        public ResponseListDTO GetAllLegendariosAll()
         {
             try
             {
                 var sql = "SELECT * FROM legendarios";
 
-                var response = new List<LegendariosDTO>();
 
-                var result = await this._conn.QueryAsync<LegendariosDTO>(sql);
+                var result = this._conn.QueryAsync<LegendariosDTO>(sql).Result;
 
-                response = result.ToList();
+                var response = new ResponseListDTO()
+                {
+                    Sucesso = true,
+                    Data = result.ToList(),
+                    Erro = ""
+                };
 
                 return response;
             }
             catch (Exception ex)
             {
-                return null;
+                return new ResponseListDTO() { Sucesso = false, Erro = ex.Message };
             }
         }
 
-        public async Task<LegendariosDTO> GetLegendarioById(string IdLegendario)
+        public ResponseOneDTO GetLegendarioById(string IdLegendario)
         {
             try
             {
                 var sql = $"SELECT * FROM legendarios where n_lgnd = {IdLegendario}";
 
-                var response = new LegendariosDTO();
+                var result = this._conn.QueryFirstAsync<LegendariosDTO>(sql).Result;
 
-                var result = await this._conn.QueryFirstAsync<LegendariosDTO>(sql);
 
-                return result;
+                var response = new ResponseOneDTO
+                {
+                    Sucesso = true,
+                    Data = result,
+                    Erro = ""
+                };
+
+                return response;
             }
             catch (Exception ex)
             {
-                return null;
+                return new ResponseOneDTO() { Sucesso = false, Erro = ex.Message };
             }
+        }
 
+        public ResponseOneDTO SalvarLegendarioById(LegendariosDTO legendario)
+        {
+            try
+            {
+                var sql = @$"UPDATE legendarios
+                                                SET 
+                                                id_legendario = {legendario.id_legendario}, 
+                                                n_lgnd = {legendario.n_lgnd},
+                                                nome = {legendario.nome},
+                                                rec = {legendario.rec},
+                                                celular = {legendario.celular},
+                                                cadastro_pessoa = {legendario.cadastro_pessoa},
+                                                data_de_nascimento = {legendario.data_de_nascimento},
+                                                estado_civil = {legendario.estado_civil},
+                                                profissao = {legendario.profissao},
+                                                tipo_sanguineo = {legendario.tipo_sanguineo},
+                                                religiao = {legendario.religiao},
+                                                igreja = {legendario.igreja},
+                                                e_batizado = {legendario.e_batizado},
+                                                frequanta_celula = {legendario.frequanta_celula},
+                                                rede = {legendario.rede},
+                                                e_lider_de_celula = {legendario.e_lider_de_celula},
+                                                ativo = {legendario.ativo},
+                                                deletado = {legendario.deletado},
+                                                
+                                                WHERE id_legendario = {legendario.id_legendario} ;";
+
+                var result = this._conn.ExecuteAsync(sql).Result;
+
+
+
+
+                var response = new ResponseOneDTO()
+                {
+                    Sucesso = true,
+                    Erro = ""
+                };
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return new ResponseOneDTO() { Sucesso = false, Erro = ex.Message };
+            }
         }
     }
 }

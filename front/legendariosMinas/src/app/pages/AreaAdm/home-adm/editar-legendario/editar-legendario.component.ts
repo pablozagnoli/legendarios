@@ -54,7 +54,7 @@ export class EditarLegendarioComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
 
     this.serviceHomeAdm.getLegendario(this.numLegendario!).subscribe((resultado) => {
-      this.dadosLegendario = resultado;
+      this.dadosLegendario = resultado.data;
       this.inicilizaForm();
     });
 
@@ -81,6 +81,42 @@ export class EditarLegendarioComponent implements OnInit {
     this.deletado.setValue(this.dadosLegendario?.deletado);
 
     sessionStorage.setItem("numLegendario", "")
+  }
+
+  SalvarLegendario() {
+    let salvar: legendarios = {
+      n_lgnd: this.n_lgnd.value,
+      nome: this.nome.value,
+      rec: this.rec.value,
+      email: this.email.value,
+      celular: this.celular.value,
+      cadastro_pessoa: this.cadastro_pessoa.value,
+      data_de_nascimento: this.data_de_nascimento.value,
+      estado_civil: this.estado_civil.value,
+      profissao: this.profissao.value,
+      tipo_sanguineo: this.tipo_sanguineo.value,
+      religiao: this.religiao.value,
+      igreja: this.igreja.value,
+      e_batizado: this.e_batizado.value,
+      frequanta_celula: this.frequanta_celula.value,
+      rede: this.rede.value,
+      e_lider_de_celula: this.e_lider_de_celula.value,
+      ativo: this.ativo.value,
+      deletado: this.deletado.value
+    }
+
+    this.serviceHomeAdm.salvarLegendario(salvar).subscribe((result => {
+
+      if (result.sucesso != true) {
+        alert("NÃO FOI POSSIVEL SALVAR - " + result.erro);
+      }
+
+      if (result.sucesso == true) {
+        alert("SALVO COM SUCESSO");
+      }
+
+    }))
+
   }
 
 }

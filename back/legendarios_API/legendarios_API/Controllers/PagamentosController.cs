@@ -28,9 +28,9 @@ namespace legendarios_API.Controllers
         [HttpGet("notificacoes-de-compra")]
         public async Task<IActionResult> notificacoesDeCompra(string idlegendario)
         {
-            var result = await _repositorio.GetLegendarioById(idlegendario);
+            //var result = await _repositorio.GetLegendarioById(idlegendario);
 
-            return Ok(result);
+            return Ok("não implementado");
         }
 
         [HttpPost("criar-pagameto")]

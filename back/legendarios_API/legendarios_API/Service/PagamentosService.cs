@@ -27,7 +27,7 @@ namespace legendarios_API.Service
 
             var request = new PreferenceRequest
             {
-                Items = new List<PreferenceItemRequest>{ 
+                Items = new List<PreferenceItemRequest>{
                                                             new PreferenceItemRequest {
                                                                                         Title = "Meu produto",
                                                                                         Quantity = 1,
@@ -35,7 +35,7 @@ namespace legendarios_API.Service
                                                                                         UnitPrice = 750.99m,
                                                                                        },
                                                       },
-            };                                                  
+            };
 
             // Cria a preferência usando o client
             var client = new PreferenceClient();

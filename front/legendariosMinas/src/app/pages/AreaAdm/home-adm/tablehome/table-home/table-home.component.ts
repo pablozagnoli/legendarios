@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { legendarios } from '../../Model/legendariosModel';
+import { legendarios, legendariosListDTO } from '../../Model/legendariosModel';
 import { HomeAdmService } from '../../service/home-adm.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
@@ -99,10 +99,15 @@ export class TableHomeComponent implements OnInit {
 
 
     this.serviceHomeAdm.getTodosLegendarios(param).subscribe((resultado) => {
-      this.listaDadosLegendarios = new MatTableDataSource<legendarios>(resultado);
+
+      if (resultado.sucesso != true) {
+        alert("ERRO NO SERVIDOR")
+      }
+
+      this.listaDadosLegendarios = new MatTableDataSource<legendarios>(resultado.data);
       this.listaDadosLegendarios.paginator = this.paginator;
     });
-    console.log(this.listaDadosLegendarios);
+
   }
 
   carregarDadosLegendariosFiltrado(nomelegendario: string, codigolegendario: number) {
@@ -122,11 +127,16 @@ export class TableHomeComponent implements OnInit {
       codigolegendario: 0
     }
 
-    this.serviceHomeAdm.getTodosLegendarios(param).subscribe((resultado: legendarios[]) => {
-      this.listaDadosLegendarios = new MatTableDataSource<legendarios>(resultado);
+    this.serviceHomeAdm.getTodosLegendarios(param).subscribe((resultado: legendariosListDTO) => {
+
+      if (resultado.sucesso != true) {
+        alert("ERRO NO SERVIDOR")
+      }
+
+      this.listaDadosLegendarios = new MatTableDataSource<legendarios>(resultado.data);
       this.listaDadosLegendarios.paginator = this.paginator;
     });
-    console.log(this.listaDadosLegendarios);
+
   }
 
   editar(event: any, numleg: any) {

@@ -1,24 +1,38 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace legendarios_API.DTO
+namespace legendarios_API.Entity
 {
+    public class ResponseListDTO
+    {
+        public Boolean? Sucesso { get; set; }
+        public string? Erro { get; set; }
+        public List<LegendariosDTO>? Data { get; set; }
+    }
+
+    public class ResponseOneDTO
+    {
+        public Boolean? Sucesso { get; set; }
+        public string? Erro { get; set; }
+        public LegendariosDTO? Data { get; set; }
+    }
     public class LegendariosDTO
     {
         /// <summary>
         /// id do legendário sequencial
         /// </summary>
         public int id_legendario { get; set; }
-        
+
         /// <summary>
         /// numero de legendário
         /// </summary>
         public string n_lgnd { get; set; }
-        
+
         /// <summary>
         /// nome do legendario
         /// </summary>
         public string nome { get; set; }
-        
+
         /// <summary>
         /// rec que participou
         /// </summary>

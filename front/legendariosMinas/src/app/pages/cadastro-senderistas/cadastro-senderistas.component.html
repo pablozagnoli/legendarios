@@ -105,6 +105,14 @@
 
           <div class="row">
 
+            <div class="col-md-4" [class.required]="this.verificaForm && formGroup.controls['cep'].getError('required')">
+              <label for="cep" class="form-label">CEP</label>
+              <input class="form-control" formControlName="cep" id="cep">
+              <div class="invalid-feedback">
+                Obrigatório.
+              </div>
+            </div>
+
             <div class="col-md-4" [class.required]="this.verificaForm && formGroup.controls['address'].getError('required')">
 
               <label for="address" class="form-label">Endereço</label>
@@ -135,14 +143,6 @@
             <div class="col-md-2" [class.required]="this.verificaForm && formGroup.controls['cidade'].getError('required')">
               <label for="cidade" class="form-label">Cidade</label>
               <input class="form-select" id="cidade" formControlName="cidade" required>
-              <div class="invalid-feedback">
-                Obrigatório.
-              </div>
-            </div>
-
-            <div class="col-md-4" [class.required]="this.verificaForm && formGroup.controls['cep'].getError('required')">
-              <label for="cep" class="form-label">CEP</label>
-              <input class="form-control" formControlName="cep" id="cep">
               <div class="invalid-feedback">
                 Obrigatório.
               </div>

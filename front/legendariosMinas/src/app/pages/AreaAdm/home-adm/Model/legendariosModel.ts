@@ -19,3 +19,15 @@ export interface legendarios {
   religiao?: string;
   tipo_sanguineo?: string;
 }
+
+export interface legendariosListDTO {
+  data: legendarios[],
+  sucesso: boolean,
+  erro: string
+}
+
+export interface legendariosOneDTO {
+  data: legendarios,
+  sucesso: boolean,
+  erro: string
+}
