@@ -30,6 +30,12 @@ namespace legendarios_API.Controllers
         [HttpPost("trazer")]
         public async Task<ActionResult<ResponseListDTO>> GetLegendarios([FromBody] LegendariosParams param)
         {
+
+            if (string.IsNullOrEmpty(param.Login.Usuario))
+            {
+                return new ResponseListDTO() { Sucesso = false, Erro = "ACESSO NÃO AUTORIZADO" };
+            }
+
             var result = _LegendariosService.GetAllLegendarios(param);
 
             return Ok(result);
