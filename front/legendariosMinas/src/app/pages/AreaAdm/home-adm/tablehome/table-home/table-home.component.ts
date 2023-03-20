@@ -82,19 +82,19 @@ export class TableHomeComponent implements OnInit {
 
   carregarDadosLegendarios() {
 
-    let pag = {
-      PAGINAATUAL: 1,
-      ULTIMAPAGINA: 1,
-      QUANTIDADEPORPAGINA: 1
+    let login = JSON.parse(sessionStorage.getItem('PO_USER_LOGIN')!);
+
+    let Login = {
+      Id_Usuario: login.id_usuario
     }
 
     let param = {
-      PAGINATION: pag,
       DATAINI: null,
       DATAFIM: null,
       CODOLEGENDARIO: null,
       nomelegendario: '',
-      codigolegendario: 0
+      codigolegendario: 0,
+      Login
     }
 
 
@@ -112,19 +112,19 @@ export class TableHomeComponent implements OnInit {
 
   carregarDadosLegendariosFiltrado(nomelegendario: string, codigolegendario: number) {
 
-    let pag = {
-      PAGINAATUAL: 1,
-      ULTIMAPAGINA: 1,
-      QUANTIDADEPORPAGINA: 1
+    let login = JSON.parse(sessionStorage.getItem('PO_USER_LOGIN')!);
+
+    let Login = {
+      Id_Usuario: login.id_usuario
     }
 
     let param = {
-      PAGINATION: pag,
       DATAINI: null,
       DATAFIM: null,
       CODOLEGENDARIO: null,
       nomelegendario: '',
-      codigolegendario: 0
+      codigolegendario: 0,
+      Login
     }
 
     this.serviceHomeAdm.getTodosLegendarios(param).subscribe((resultado: legendariosListDTO) => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PoPageLoginLiterals } from '@po-ui/ng-templates';
+import { PoPageLoginAuthenticationType, PoPageLoginLiterals } from '@po-ui/ng-templates';
 
 @Component({
   selector: 'app-login-adm',
@@ -13,6 +13,10 @@ export class LoginAdmComponent implements OnInit {
   customLiterals: PoPageLoginLiterals = {
     welcome: 'Bem vindo ao Painel ADM Legendários Minas!',
   };
+
+  urlLogin = "https://localhost:5001/adm-login"
+
+  tipoAutenticacao = PoPageLoginAuthenticationType.Bearer;
 
   ngOnInit(): void {
     sessionStorage.setItem('ExibeRodape', '0');

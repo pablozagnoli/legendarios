@@ -21,6 +21,7 @@ namespace legendarios_API.Controllers
 
         private readonly ILogger<LegendariosController> _logger;
         private LegendariosService _LegendariosService = new LegendariosService();
+        private LoginService _LoginService = new LoginService();
 
         public LegendariosController(ILogger<LegendariosController> logger)
         {
@@ -30,8 +31,9 @@ namespace legendarios_API.Controllers
         [HttpPost("trazer")]
         public async Task<ActionResult<ResponseListDTO>> GetLegendarios([FromBody] LegendariosParams param)
         {
+            var logado = _LoginService.VerificaSeEstaLogado(param.Login.Id_Usuario.ToString());
 
-            if (string.IsNullOrEmpty(param.Login.Usuario))
+            if (!logado)
             {
                 return new ResponseListDTO() { Sucesso = false, Erro = "ACESSO NÃO AUTORIZADO" };
             }

@@ -22,7 +22,6 @@ namespace legendarios_API.Service
     {
 
         static string _connectionString = "Server=89.117.32.251;port=33;Database=DBLEGENDARIOS;Uid=root;Pwd=97514815";
-        MySqlConnection _conn = new MySqlConnection(_connectionString);
         LegendariosRepository legendariosRepository = new LegendariosRepository();
 
         public IEnumerable<LegendariosDTO> GetDept()

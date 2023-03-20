@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { legendarios } from './Model/legendariosModel';
 import { HomeAdmService } from './service/home-adm.service';
 
@@ -25,13 +26,41 @@ export class HomeAdmComponent implements OnInit {
   ];
 
 
-  constructor(private serviceHomeAdm: HomeAdmService) { }
+  constructor(private serviceHomeAdm: HomeAdmService,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.VerficarAutenticacao();
   }
 
-  onClickGridItenDadosTecnicos(event: any, element: any, testo: string){
+  onClickGridItenDadosTecnicos(event: any, element: any, testo: string) {
 
+  }
+
+  VerficarAutenticacao() {
+    let login = JSON.parse(sessionStorage.getItem('PO_USER_LOGIN')!);
+
+    let resultadoComparacao = this.VericaAsDatasDoToken(login);
+
+    if (resultadoComparacao) {
+
+      this.router.navigate(["login-adm"], {
+      });
+    }
+  }
+
+  VericaAsDatasDoToken(login: any) {
+
+    var dataLogin = new Date(login.dt_acesso);
+    var dataLogin = new Date();
+
+    var diferencaEmMilissegundos = dataLogin.getTime() - dataLogin.getTime();
+
+    if (diferencaEmMilissegundos < 900000) { // 15 minutos em milissegundos
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

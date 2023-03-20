@@ -15,8 +15,7 @@ namespace legendarios_API.Models
 
     public class Autenticacao
     {
-        public string? Usuario { get; set; }
-        public string? Chave { get; set; }
+        public int Id_Usuario { get; set; }
     }
 
 }

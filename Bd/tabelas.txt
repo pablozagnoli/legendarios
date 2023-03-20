@@ -4,18 +4,46 @@ Create database DBLEGENDARIOS
 USE DBLEGENDARIOS
 ---------------------------------CRIAÇAO DAS TABELAS-----------------------------------
 
-CREATE  TABLE  IF NOT EXISTS  senderistas (         
-id_senderista  INT  AUTO_INCREMENT  PRIMARY KEY,         
-titulo_imovel VARCHAR(100),
-descricao_imovel VARCHAR(255),
-endereco_imovel VARCHAR(155),
-cep_imovel VARCHAR(255),
-valor_imovel VARCHAR(255),
-data_de_edicao  DATE,
-status  TINYINT  NOT NULL,
-priority  TINYINT  NOT NULL,
-description  TEXT,
-data_de_criacao  TIMESTAMP  DEFAULT  CURRENT_TIMESTAMP)  ENGINE=INNODB;
+CREATE TABLE `DBLEGENDARIOS`.`USUARIOS` (
+  `id_usuario` INT NOT NULL,
+  `n_lgnd` VARCHAR(100) NOT NULL,
+  `nome` VARCHAR(200) NULL,
+  `nivel_permissao` INT NULL,
+  `data_criacao` DATETIME NULL,
+  `id_usuario_criacao` VARCHAR(50) NULL,
+  `data_edicao` DATETIME NULL,
+  `id_usuario_edicao` VARCHAR(50) NULL,
+  `data_delecao` DATETIME NULL,
+  `id_usuario_delecao` VARCHAR(50) NULL,
+  `deletado` INT NULL,
+  UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC),
+  CONSTRAINT `ID_LEGENDARIO`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `DBLEGENDARIOS`.`legendarios` (`id_legendario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'TABELA REFERENTE AOS USUARIOS DO SISTEMA';
+
+CREATE TABLE `DBLEGENDARIOS`.`TOKENS` (
+  `id_tokens` INT NOT NULL,
+  `token` VARCHAR(50) NULL,
+  `id_usuario` INT NOT NULL,
+  `dt_acesso` DATETIME NOT NULL,
+  `deletado` INT NULL,
+  PRIMARY KEY (`id_tokens`),
+  INDEX `id_usuario_idx` (`id_usuario` ASC) VISIBLE,
+  CONSTRAINT `id_usuario`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `DBLEGENDARIOS`.`USUARIOS` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE `DBLEGENDARIOS`.`PERMISSOES` (
+  `id_permissao` INT NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(200) NULL,
+  `deletado` INT NULL,
+  UNIQUE INDEX `idPERMISSOES_UNIQUE` (`id_permissao` ASC))
+COMMENT = 'TABELA REFERENTE AS PERMISSOES DOS USUARIOS DO SISTEMA';
 
 CREATE  TABLE  IF NOT EXISTS legendarios (  
 id_legendario INT UNIQUE KEY AUTO_INCREMENT,       
