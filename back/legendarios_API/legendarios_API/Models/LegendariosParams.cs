@@ -9,8 +9,7 @@ namespace legendarios_API.Models
         public int? CODIGOLEGENDARIO { get; set; }
         public string NOMELEGENDARIO { get; set; }
         public int? CODOLEGENDARIO { get; set; }
-
-        public Autenticacao Login { get; set; }
+        public int Id_Usuario { get; set; }
     }
 
     public class Autenticacao

@@ -32,4 +32,8 @@ export class HomeAdmService {
   salvarLegendario(param: any): Observable<legendariosOneDTO> {
     return this.httpcliente.put<legendariosOneDTO>(`${this.BASEURL}salvar-legendario`, param);
   }
+
+  getStatusLogin(IdUsuario: string): Observable<any> {
+    return this.httpcliente.get<any>(`${this.BASEURL}logado/${IdUsuario}`);
+  }
 }

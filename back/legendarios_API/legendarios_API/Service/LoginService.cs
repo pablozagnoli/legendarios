@@ -32,6 +32,11 @@ namespace legendarios_API.Service
 
             var token = tokens.OrderByDescending(obj => obj.dt_acesso).FirstOrDefault();
 
+            if (token == null)
+            {
+                return false;
+            }
+
             DateTime dataAtual = DateTime.Now;
             DateTime dataAcesso = token.dt_acesso;
 

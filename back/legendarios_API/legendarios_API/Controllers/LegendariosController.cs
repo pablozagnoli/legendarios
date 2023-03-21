@@ -3,6 +3,7 @@ using legendarios_API.Entity;
 using legendarios_API.Models;
 using legendarios_API.Repository;
 using legendarios_API.Service;
+using MercadoPago.Http;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -31,7 +32,7 @@ namespace legendarios_API.Controllers
         [HttpPost("trazer")]
         public async Task<ActionResult<ResponseListDTO>> GetLegendarios([FromBody] LegendariosParams param)
         {
-            var logado = _LoginService.VerificaSeEstaLogado(param.Login.Id_Usuario.ToString());
+            var logado = _LoginService.VerificaSeEstaLogado(param.Id_Usuario.ToString());
 
             if (!logado)
             {
@@ -73,6 +74,19 @@ namespace legendarios_API.Controllers
             var Dir = Directory.GetCurrentDirectory();
             var cert = @$"{Dir}/certificate/certificado.pfx";
             return Dir + " --- " + cert;
+        }
+
+        [HttpGet("logado/{idUsuario}")]
+        public async Task<ActionResult<ResponseOneDTO>> GetLogado(string idUsuario)
+        {
+            var logado = _LoginService.VerificaSeEstaLogado(idUsuario);
+
+            var response = new ResponseOneDTO
+            {
+                Sucesso = logado
+            };
+
+            return Ok(response);
         }
 
     }

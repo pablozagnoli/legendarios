@@ -84,9 +84,6 @@ export class TableHomeComponent implements OnInit {
 
     let login = JSON.parse(sessionStorage.getItem('PO_USER_LOGIN')!);
 
-    let Login = {
-      Id_Usuario: login.id_usuario
-    }
 
     let param = {
       DATAINI: null,
@@ -94,7 +91,7 @@ export class TableHomeComponent implements OnInit {
       CODOLEGENDARIO: null,
       nomelegendario: '',
       codigolegendario: 0,
-      Login
+      Id_Usuario: login == null ? 0 : login.id_usuario
     }
 
 
@@ -114,17 +111,13 @@ export class TableHomeComponent implements OnInit {
 
     let login = JSON.parse(sessionStorage.getItem('PO_USER_LOGIN')!);
 
-    let Login = {
-      Id_Usuario: login.id_usuario
-    }
-
     let param = {
       DATAINI: null,
       DATAFIM: null,
       CODOLEGENDARIO: null,
       nomelegendario: '',
       codigolegendario: 0,
-      Login
+      Id_Usuario: login == null ? 0 : login.id_usuario
     }
 
     this.serviceHomeAdm.getTodosLegendarios(param).subscribe((resultado: legendariosListDTO) => {

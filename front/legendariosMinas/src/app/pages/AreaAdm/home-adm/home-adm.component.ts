@@ -38,29 +38,26 @@ export class HomeAdmComponent implements OnInit {
   }
 
   VerficarAutenticacao() {
+
     let login = JSON.parse(sessionStorage.getItem('PO_USER_LOGIN')!);
 
-    let resultadoComparacao = this.VericaAsDatasDoToken(login);
+    login = login != null ? login : 0
 
-    if (resultadoComparacao) {
+    let statusLogin = false;
+    this.serviceHomeAdm.getStatusLogin(login.id_usuario).subscribe((result) => {
+      statusLogin = result.sucesso
 
-      this.router.navigate(["login-adm"], {
-      });
-    }
+      let session = sessionStorage.getItem('PO_USER_LOGIN');
+
+      if (!statusLogin) {
+
+        this.router.navigate(["/login-adm"], {
+        });
+      } else {
+        this.router.navigate(["/home-adm"], {
+        });
+      }
+    })
+
   }
-
-  VericaAsDatasDoToken(login: any) {
-
-    var dataLogin = new Date(login.dt_acesso);
-    var dataLogin = new Date();
-
-    var diferencaEmMilissegundos = dataLogin.getTime() - dataLogin.getTime();
-
-    if (diferencaEmMilissegundos < 900000) { // 15 minutos em milissegundos
-      return true;
-    } else {
-      return false;
-    }
-  }
-
 }
