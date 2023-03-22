@@ -79,6 +79,10 @@ namespace legendarios_API.Controllers
         [HttpGet("logado/{idUsuario}")]
         public async Task<ActionResult<ResponseOneDTO>> GetLogado(string idUsuario)
         {
+            if (idUsuario == "undefined")
+            {
+                idUsuario = "0";
+            }
             var logado = _LoginService.VerificaSeEstaLogado(idUsuario);
 
             var response = new ResponseOneDTO

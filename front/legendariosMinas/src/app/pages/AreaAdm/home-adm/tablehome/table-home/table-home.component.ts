@@ -115,8 +115,8 @@ export class TableHomeComponent implements OnInit {
       DATAINI: null,
       DATAFIM: null,
       CODOLEGENDARIO: null,
-      nomelegendario: '',
-      codigolegendario: 0,
+      nomelegendario: nomelegendario,
+      codigolegendario: codigolegendario,
       Id_Usuario: login == null ? 0 : login.id_usuario
     }
 

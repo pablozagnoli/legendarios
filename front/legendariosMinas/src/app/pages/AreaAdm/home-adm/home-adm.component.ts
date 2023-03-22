@@ -43,21 +43,30 @@ export class HomeAdmComponent implements OnInit {
 
     login = login != null ? login : 0
 
+    login = login != undefined ? login : 0
+
     let statusLogin = false;
-    this.serviceHomeAdm.getStatusLogin(login.id_usuario).subscribe((result) => {
-      statusLogin = result.sucesso
+    this.serviceHomeAdm.getStatusLogin(login.id_usuario).subscribe({
 
-      let session = sessionStorage.getItem('PO_USER_LOGIN');
 
-      if (!statusLogin) {
+      next: (result) => {
+        statusLogin = result.sucesso
 
+        let session = sessionStorage.getItem('PO_USER_LOGIN');
+
+        if (!statusLogin) {
+
+          this.router.navigate(["/login-adm"], {
+          });
+        } else {
+          this.router.navigate(["/home-adm"], {
+          });
+        }
+      },
+      error: (error) => {
         this.router.navigate(["/login-adm"], {
         });
-      } else {
-        this.router.navigate(["/home-adm"], {
-        });
-      }
+      },
     })
-
   }
 }

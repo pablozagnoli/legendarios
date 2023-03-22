@@ -1,11 +1,6 @@
 C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\legendarios_API.exe
-C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\publish\web.config
 C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\appsettings.Development.json
 C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\appsettings.json
-C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\publish\appsettings.Development.json
-C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\publish\appsettings.json
-C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\publish\legendarios_API.deps.json
-C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\publish\legendarios_API.runtimeconfig.json
 C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\legendarios_API.dll
 C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\legendarios_API.deps.json
 C:\Users\brunsker\Desktop\Projects\pessoais\legendarios\back\legendarios_API\legendarios_API\obj\Docker\publish\legendarios_API.runtimeconfig.json

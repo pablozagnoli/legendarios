@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PoPageLoginAuthenticationType, PoPageLoginLiterals } from '@po-ui/ng-templates';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login-adm',
@@ -7,6 +8,7 @@ import { PoPageLoginAuthenticationType, PoPageLoginLiterals } from '@po-ui/ng-te
   styleUrls: ['./login-adm.component.css'],
 })
 export class LoginAdmComponent implements OnInit {
+  private BASEURL = `${environment.baseURL}`;
 
   constructor() {}
 
@@ -14,7 +16,9 @@ export class LoginAdmComponent implements OnInit {
     welcome: 'Bem vindo ao Painel ADM Legendários Minas!',
   };
 
-  urlLogin = "https://localhost:5001/adm-login"
+  //urlLogin = "https://localhost:5001/adm-login"
+
+  urlLogin = `${this.BASEURL}adm-login`;
 
   tipoAutenticacao = PoPageLoginAuthenticationType.Bearer;
 

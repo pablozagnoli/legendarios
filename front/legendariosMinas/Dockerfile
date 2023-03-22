@@ -1,11 +1,13 @@
-FROM ubuntu/nginx:1.18-20.04_beta
-COPY certs /root/certs
-COPY nginx.conf /etc/nginx/nginx.conf
-WORKDIR /usr/share/nginx/html
-COPY ./dist/legendarios-minas .
-EXPOSE 80
+FROM node:latest AS build
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Estágio de produção
+FROM nginx:alpine
+COPY --from=build /usr/src/app/dist/my-app /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 443
-
-
-
-# Build imagem Docker: docker build -t legendarios-front .
+CMD ["nginx", "-g", "daemon off;"]
