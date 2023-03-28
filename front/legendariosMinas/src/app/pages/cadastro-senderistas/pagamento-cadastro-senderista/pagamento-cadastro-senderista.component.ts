@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CadatroSenderitasServiceService } from '../services/cadatro-senderitas-service.service';
@@ -14,7 +14,8 @@ export class PagamentoCadastroSenderistaComponent implements OnInit, OnChanges {
   textform = new FormControl();
 
   constructor(readonly cadatroSenderitasServiceService: CadatroSenderitasServiceService,
-    private router: Router) { }
+    private router: Router,
+    private renderer: Renderer2) { }
 
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -32,6 +33,82 @@ export class PagamentoCadastroSenderistaComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.CarregarScripts();
+  }
+
+  GetScriptConfiguracaoPrincipalMercadoPago(): string {
+
+    const retorno =
+      `
+  const mp = new MercadoPago('APP_USR-185bfd07-2552-4ecd-990c-0abbac069d15');
+
+  const bricksBuilder = mp.bricks();
+
+
+  const renderPaymentBrick = async (bricksBuilder) => {
+    const settings = {
+      initialization: {
+        amount: 100, // valor total a ser pago
+        paymentId: '53958642296',
+      },
+      customization: {
+        paymentMethods: {
+          creditCard: 'all',
+          debitCard: 'all',
+          bankTransfer: ['pix'],
+        },
+      },
+      callbacks: {
+        onReady: () => {
+          /*
+            Callback chamado quando o Brick estiver pronto.
+            Aqui você pode ocultar loadings do seu site, por exemplo.
+          */
+        },
+        onSubmit: ({ selectedPaymentMethod, formData }) => {
+
+          sessionStorage.setItem("formData", JSON.stringify(formData))
+
+          let textfor = document.getElementById("acioneeventodeclickpagamento");
+          textfor.click();
+
+          // callback chamado ao clicar no botão de submissão dos dados
+          return new Promise((resolve, reject) => {
+
+          });
+        },
+        onError: (error) => {
+          // callback chamado para todos os casos de erro do Brick
+          console.error(error);
+        },
+      },
+    };
+
+      await new Promise(f => setTimeout(f, 3000));
+      window.paymentBrickController = await bricksBuilder.create(
+        'payment',
+        'containerpagamento',
+        settings
+      );
+  };
+
+  renderPaymentBrick(bricksBuilder);
+
+
+    `;
+
+    return retorno;
+  }
+
+  CarregarScripts() {
+
+
+
+    const script = this.renderer.createElement('script');
+    script.type = 'text/javascript';
+    script.id = "1995";
+    script.text = this.GetScriptConfiguracaoPrincipalMercadoPago();
+    this.renderer.appendChild(document.body, script);
 
   }
 
@@ -42,27 +119,23 @@ export class PagamentoCadastroSenderistaComponent implements OnInit, OnChanges {
     this.cadatroSenderitasServiceService.PostPagamento(param).subscribe({
       next: (response: any) => {
 
-        sessionStorage.setItem("numPag", response.id)
         this.navegarparastatuspagamento(response.id)
       },
       error: (error: any) => {
-
+        alert(error);
       }
     })
   }
 
-  euaqui() {
-    document.getElementById("testando")?.click();
-
-  }
 
   navegarparastatuspagamento(numPag: string) {
-    sessionStorage.setItem("recarregarstatuspagamento", "1");
+
     this.router.navigate(["status-pagamento"], {
       queryParams: {
         numPag: numPag,
       },
     });
+
   }
 
 }
